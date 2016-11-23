@@ -16,6 +16,6 @@ cp composer.json /var/www/html/
 cd var/www/html
 curl -O http://getcomposer.org/composer.phar
 chown www-data:www-data /var/www/html/*
-cd
+rm /var/www/html/index.html
 # restart Apache
 apachectl restart
