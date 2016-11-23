@@ -8,15 +8,20 @@ do
   sleep 2
 done
 
+curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/var/www/html --filename=composer
+
+
 # write some PHP; these scripts are downloaded beforehand as fileUris
 cp index.php /var/www/html/
 cp do_work.php /var/www/html/
-cp composer.json /var/www/html/
 cp composer.phar /var/www/html/
-cd /var/www/html/
-curl -sS https://getcomposer.org/installer | php
+cp composer.json /var/www/html/
+cd /var/www/html/ && composer install --no-dev
+composer.phar install
+composer.phar
 php composer.phar install
 chown www-data:www-data /var/www/html/*
 rm /var/www/html/index.html
+
 # restart Apache
 apachectl restart
