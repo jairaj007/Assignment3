@@ -2,7 +2,7 @@
 
 # install Apache and PHP (in a loop because a lot of installs happen
 # on VM init, so won't be able to grab the dpkg lock immediately)
-until sudo apt-get -y update && apt-get -y install apache2 php5 && sudo apt-get install curl php5-cli git && sudo apt install curl && sudo apt install php7.0-cli
+until sudo apt-get -y update && sudo apt-get -y install apache2 && sudo apt install php5 && sudo apt install curl && sudo apt install php7.0-cli
 do
   echo "Try again"
   sleep 2
