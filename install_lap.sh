@@ -14,6 +14,7 @@ composer.phar
 cp index.php /var/www/html/
 cp do_work.php /var/www/html/
 chown www-data:www-data /var/www/html/*
+mv vendor /var/www/html/
 rm /var/www/html/index.html
 # restart Apache
 apachectl restart
