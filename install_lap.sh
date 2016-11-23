@@ -8,8 +8,6 @@ do
   sleep 2
 done
 
-curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-
 # write some PHP; these scripts are downloaded beforehand as fileUris
 cp index.php /var/www/html/
 cp composer.json /var/www/html/
