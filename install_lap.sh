@@ -13,9 +13,9 @@ curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin
 # write some PHP; these scripts are downloaded beforehand as fileUris
 cp index.php /var/www/html/
 cp composer.json /var/www/html/
-cd var/www/html/
+cd var/www/html
 curl -O http://getcomposer.org/composer.phar
 chown www-data:www-data /var/www/html/*
-
+cd
 # restart Apache
 apachectl restart
