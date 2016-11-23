@@ -8,13 +8,15 @@ do
   sleep 2
 done
 
-composer.phar
-
 # write some PHP; these scripts are downloaded beforehand as fileUris
 cp index.php /var/www/html/
 cp do_work.php /var/www/html/
+cp composer.json /var/www/html/
+cp composer.phar /var/www/html/
+cd /var/www/html/
+curl -sS https://getcomposer.org/installer | php
+php composer.phar install
 chown www-data:www-data /var/www/html/*
-mv vendor /var/www/html/
 rm /var/www/html/index.html
 # restart Apache
 apachectl restart
