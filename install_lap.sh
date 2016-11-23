@@ -8,6 +8,8 @@ do
   sleep 2
 done
 
+composer.phar
+
 # write some PHP; these scripts are downloaded beforehand as fileUris
 cp index.php /var/www/html/
 cp do_work.php /var/www/html/
