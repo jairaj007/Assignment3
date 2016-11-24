@@ -14,9 +14,6 @@ done
 # write some PHP; these scripts are downloaded beforehand as fileUris
 cp index.php /var/www/html/
 cp composer.json /var/www/html/
-curl -o /var/www/html http://getcomposer.org/composer.phar
-cd /var/www/html
-php composer.phar install
 chown www-data:www-data /var/www/html/*
 rm /var/www/html/index.html
 
