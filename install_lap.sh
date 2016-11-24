@@ -4,6 +4,9 @@
 apt-get -y update
 apt-get -y install apache2 php5
 apt-get install php7.0-cli
+apt-get install curl php5-cli git
+
+curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
 
 # write some PHP
 cd /var/www/html
