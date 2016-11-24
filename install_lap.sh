@@ -8,7 +8,6 @@ apt-get install wget
 
 curl -sS https://getcomposer.org/installer | php
 # write some PHP
-cd var/www/html
 cd /var/www/html
 wget https://raw.githubusercontent.com/jairaj007/Assignment3/master/index.php
 wget https://raw.githubusercontent.com/jairaj007/Assignment3/master/composer.json
