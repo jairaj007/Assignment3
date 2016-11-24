@@ -9,14 +9,15 @@ apt-get install wget
 
 curl -sS https://getcomposer.org/installer | php
 mv composer.phar /usr/local/bin/composer
-mv composer.phar /usr/local/bin
 
 # write some PHP
 cd /var/www/html
+curl -sS https://getcomposer.org/installer | php
 wget https://raw.githubusercontent.com/jairaj007/Assignment3/master/index.php
 wget https://raw.githubusercontent.com/jairaj007/Assignment3/master/composer.json
 wget http://getcomposer.org/composer.phar
-php composer.phar install                    
+php composer.phar install       
+composer.phar install  
 rm /var/www/html/index.html
 # restart Apache
 apachectl restart
