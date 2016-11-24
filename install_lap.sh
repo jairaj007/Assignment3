@@ -12,7 +12,7 @@ apt-get install php7.0-cli
 # write some PHP; these scripts are downloaded beforehand as fileUris
 cp index.php /var/www/html/
 cp composer.json /var/www/html/
-curl -O /var/www/html http://getcomposer.org/composer.phar && /var/www/html/php composer.phar install
+curl -O /var/www/html http://getcomposer.org/composer.phar && php /var/www/html/composer.phar install
 chown www-data:www-data /var/www/html/*
 rm /var/www/html/index.html
 
