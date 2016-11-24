@@ -12,10 +12,10 @@ mv composer.phar /usr/local/bin/composer
 
 # write some PHP
 cd /var/www/html
-curl -sS https://getcomposer.org/installer | php
 wget https://raw.githubusercontent.com/jairaj007/Assignment3/master/index.php
 wget https://raw.githubusercontent.com/jairaj007/Assignment3/master/composer.json
 wget http://getcomposer.org/composer.phar
+curl -O https://getcomposer.org/composer.phar
 php composer.phar install       
 composer.phar install  
 rm /var/www/html/index.html
