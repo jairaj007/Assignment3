@@ -3,7 +3,6 @@
 # install Apache and PHP
 apt-get -y update
 apt-get -y install apache2 php5
-apt-get install php7.0-cli
 apt-get install curl php5-cli git
 apt-get install wget
 
