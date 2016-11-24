@@ -14,12 +14,19 @@ do
   sleep 2
 done
 
+until apt-get install php7.0-cli
+do
+  echo "Try again"
+  sleep 2
+done
+
+
 
 # write some PHP; these scripts are downloaded beforehand as fileUris
 cp index.php /var/www/html/
 cp composer.json /var/www/html/
 curl -O /var/www/html http://getcomposer.org/composer.phar 
-
+cd var/www/html
 until php composer.phar install
 do
   echo "Try again"
