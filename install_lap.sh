@@ -1,20 +1,20 @@
-#!/bin/bash
-# wait for Linux Diagnostic Extension to complet
-# install Apache and PHP
-apt-get -y update
-apt-get -y install apache2 php5
-apt-get install curl php5-cli git
-apt-get install wget
+sudo apt-get -y update
+sudo apt-get -y install apache2
+sudo apache2ctl configtest
+apt-get install -y php
+sudo apt install php libapache2-mod-php
+apt-get install -y curl php-cli git
+apt-get install -y wget
 
 curl -sS https://getcomposer.org/installer | php
-# write some PHP
+
 cd /var/www/html
-wget https://raw.githubusercontent.com/jairaj007/Assignment3/master/index.php
+#wget https://raw.githubusercontent.com/irwinwilliams/azure-quickstart-templates/101-vm-simple-linux-withphp/master/index.php
+
 wget https://raw.githubusercontent.com/jairaj007/Assignment3/master/composer.json
 wget https://raw.githubusercontent.com/jairaj007/Assignment3/master/do_work.php
 wget http://getcomposer.org/composer.phar
-php composer.phar install       
+php composer.phar install
 rm /var/www/html/index.html
-# restart Apache
-apachectl restart
 
+apachectl restart
