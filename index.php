@@ -14,13 +14,13 @@ use MicrosoftAzure\Storage\Table\Models\Entity;
 use MicrosoftAzure\Storage\Table\Models\EdmType;
 use MicrosoftAzure\Storage\Table\Models\QueryEntitiesOptions;
 
-
+echo "<h1>Hello1as</h1>";
 $connectionString="DefaultEndpointsProtocol=http;AccountName=6905assignment2;AccountKey=uO9P8uhYWle7s8dePugaMqsMjtvQhkyhDHHlfF1d7CiAgI+XriPsTb0ROSlP5/Y1OFsxWdgXQlbSknIxjTao1w==";
 
 // Create table REST proxy.
 $tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
 
-
+echo "<h1>Hello1asdf</h1>";
 
 try {
 	echo "<h1>Hello0</h1>";
