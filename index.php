@@ -1,6 +1,6 @@
 <?php
 
-
+echo "<h1>Hello</h1>";
 
 require_once 'vendor\autoload.php';
 use WindowsAzure\Common\ServicesBuilder;
@@ -8,12 +8,36 @@ use WindowsAzure\Common\ServiceException;
 use WindowsAzure\ServiceBus\Models\QueueInfo;
 use WindowsAzure\ServiceBus\Models\BrokeredMessage;
 use WindowsAzure\ServiceBus\Models\ReceiveMessageOptions;
+use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Table\Models\Entity;
+use MicrosoftAzure\Storage\Table\Models\EdmType;
+use MicrosoftAzure\Storage\Table\Models\QueryEntitiesOptions;
+
+
+$connectionString="DefaultEndpointsProtocol=http;AccountName=cyhvyxcqlww2moloiq12kzsa;AccountKey=s0xHDxoWqYHdLc3dKYV+x5bxCCoXSvkw3h5TSvGFX1eczuw16Jz1bgClovyN4Qir2JMmk0H5HhceflcpaJzEaw==";
+
+// Create table REST proxy.
+$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
+
+
+try {
+    // Create table.
+	$tableRestProxy->createTable("suitEventStore");
+
+}
+catch(ServiceException $e){
+    $code = $e->getCode();
+    $error_message = $e->getMessage();
+    // Handle exception based on error codes and messages.
+    // Error codes and messages can be found here:
+    // http://msdn.microsoft.com/library/azure/dd179438.aspx
+	
+
+}
 
 
 $connectionString = "Endpoint=https://jairaj007.servicebus.windows.net/;SharedSecretIssuer=owner;SharedSecretValue=NT7d6BIJQdoPD7JW1ujKAAsfLk50jJyguSc7FYdn7Sc=";
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
-
-echo $connectionString;
 
 try    {
     // Set the receive mode to PeekLock (default is ReceiveAndDelete).
