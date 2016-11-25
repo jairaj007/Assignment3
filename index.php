@@ -2,7 +2,7 @@
 
 echo "<h1>Hello</h1>";
 
-require_once 'vendor\autoload.php';
+require 'vendor\autoload.php';
 use WindowsAzure\Common\ServicesBuilder;
 use WindowsAzure\Common\ServiceException;
 use WindowsAzure\ServiceBus\Models\QueueInfo;
