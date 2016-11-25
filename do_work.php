@@ -1,5 +1,5 @@
-<html>
+<?php
 
-  <head><title>VM Scale Set CPU load example</title></head>
+  echo "<h1>VM Scale Set CPU load example</h1>";
 
-</html>
+?>
