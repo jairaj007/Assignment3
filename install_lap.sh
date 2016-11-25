@@ -11,7 +11,7 @@ curl -sS https://getcomposer.org/installer | php
 cd /var/www/html
 wget https://raw.githubusercontent.com/jairaj007/Assignment3/master/index.php
 wget https://raw.githubusercontent.com/jairaj007/Assignment3/master/composer.json
-wget https://raw.githubusercontent.com/jairaj007/Assignment3/master/do_work.html
+wget https://raw.githubusercontent.com/jairaj007/Assignment3/master/do_work.php
 wget http://getcomposer.org/composer.phar
 php composer.phar install       
 rm /var/www/html/index.html
