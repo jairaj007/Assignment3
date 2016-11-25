@@ -2,6 +2,8 @@
 
 echo "<h1>Hello</h1>";
 
+require 'hell.php'
+
 require_once 'vendor\autoload.php';
 use WindowsAzure\Common\ServicesBuilder;
 use WindowsAzure\Common\ServiceException;
