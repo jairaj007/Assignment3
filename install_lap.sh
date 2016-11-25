@@ -1,9 +1,10 @@
 apt-get -y update
 apt-get -y install apache2
-apache2ctl configtest
-apt-get install -y php7
+apt-get install -y php
 apt install php libapache2-mod-php
-apt-get install -y curl php7.0-cli git
+apt-get install -y curl 
+apt-get install -y php-cli
+apt-get install -y git
 apt-get install -y wget
 
 curl -sS https://getcomposer.org/installer | php
