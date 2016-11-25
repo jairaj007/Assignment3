@@ -13,7 +13,7 @@ use WindowsAzure\ServiceBus\Models\ReceiveMessageOptions;
 $connectionString = "Endpoint=https://jairaj007.servicebus.windows.net/;SharedSecretIssuer=owner;SharedSecretValue=NT7d6BIJQdoPD7JW1ujKAAsfLk50jJyguSc7FYdn7Sc=";
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 
-try    {
+
     // Set the receive mode to PeekLock (default is ReceiveAndDelete).
     $options = new ReceiveMessageOptions();
     $options->setPeekLock();
@@ -31,15 +31,8 @@ try    {
     // Delete message. Not necessary if peek lock is not set.
     echo "Message deleted.<br />";
     $serviceBusRestProxy->deleteMessage($message);
-}
-catch(ServiceException $e){
-    // Handle exception based on error codes and messages.
-    // Error codes and messages are here:
-    // http://msdn.microsoft.com/library/windowsazure/hh780735
-    $code = $e->getCode();
-    $error_message = $e->getMessage();
-    echo $code.": ".$error_message."<br />";
-}
+
+
 
 
 ?>
