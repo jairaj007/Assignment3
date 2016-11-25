@@ -23,11 +23,13 @@ $tableRestProxy = ServicesBuilder::getInstance()->createTableService($connection
 
 
 try {
+	echo "<h1>Hello0</h1>";
     // Create table.
 	$tableRestProxy->createTable("suitEventStore");
 
 }
 catch(ServiceException $e){
+	echo "<h1>Hello00</h1>";
     $code = $e->getCode();
     $error_message = $e->getMessage();
     // Handle exception based on error codes and messages.
@@ -37,10 +39,13 @@ catch(ServiceException $e){
 
 }
 
+
+
 $connectionString = "Endpoint=https://jairaj007.servicebus.windows.net/;SharedSecretIssuer=owner;SharedSecretValue=NT7d6BIJQdoPD7JW1ujKAAsfLk50jJyguSc7FYdn7Sc=";
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 
 try    {
+	echo "<h1>Hello1</h1>";
     // Set the receive mode to PeekLock (default is ReceiveAndDelete).
     $options = new ReceiveMessageOptions();
     $options->setPeekLock();
@@ -60,6 +65,7 @@ try    {
     $serviceBusRestProxy->deleteMessage($message);
 }
 catch(ServiceException $e){
+	echo "<h1>Hello11</h1>";
     // Handle exception based on error codes and messages.
     // Error codes and messages are here:
     // http://msdn.microsoft.com/library/windowsazure/hh780735
@@ -67,6 +73,7 @@ catch(ServiceException $e){
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";
 }
+echo "<h1>Hello55</h1>";
 
 
 
