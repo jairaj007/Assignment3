@@ -5,7 +5,8 @@ import math
 import socket
 import threading
 import time
-
+from azure.servicebus import ServiceBusService, Message, Queue
+from azure.servicebus import Message
 from bottle import route, run
 
 hostname = socket.gethostname()
@@ -52,7 +53,9 @@ def writebody():
 
 @route('/')
 def root():
-    return ("Hello")
+	msg = bus_service.receive_queue_message('myqueue', peek_lock=True)
+	return(msg.body)
+	msg.delete()
 
 
 @route('/do_work')
