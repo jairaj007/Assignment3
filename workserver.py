@@ -64,4 +64,4 @@ def stop_work():
     return writebody()
 
 
-run(host=hostname, port=hostport)
+run()
