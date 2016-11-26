@@ -52,9 +52,7 @@ def writebody():
 
 @route('/')
 def root():
-    msg = bus_service.receive_queue_message('myqueue', peek_lock=True)
-	return(msg.body)
-	msg.delete()
+    return ("Hello")
 
 
 @route('/do_work')
