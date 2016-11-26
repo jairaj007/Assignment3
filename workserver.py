@@ -24,7 +24,7 @@ def writebody():
 	
 @route('/')
 def root():
-    return writebody()
+    return ("HELLO")
 
 
 run(host=hostname, port=hostport)
