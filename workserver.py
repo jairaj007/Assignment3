@@ -17,9 +17,9 @@ hostport = 80
 
 
 def writebody():
-    body = '<html><head><title>Work interface - build</title></head>'
-    body += '<body><h2>Worker interface on</h2><ul><h3>'
-    return body
+	body = '<html><head><title>Work interface - build</title></head>'
+	body += '<body><h2>Worker interface on</h2><ul><h3>'
+	return body
 	
 	
 
@@ -28,6 +28,4 @@ def writebody():
 def root():
 	return writebody()
 	
-
-
-run()
+run(host=hostname, port=hostport)
