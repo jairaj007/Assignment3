@@ -9,12 +9,16 @@ import time
 
 from bottle import route, run
 
+def writebody():
+    from azure.servicebus import ServiceBusService, Message, Queue
+    return ("Hello")
+
 hostname = socket.gethostname()
 hostport = 9000
 
 @route('/')
 def root():
-    return ("HELLO")
+    return writebody()
 
 
 run(host=hostname, port=hostport)
