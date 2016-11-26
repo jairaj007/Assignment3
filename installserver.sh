@@ -5,8 +5,8 @@ cp workserver.py $workserver_path
 
 # install python3-bottle 
 sudo apt-get -y update
-sudo apt-get install python3-pip
-sudo apt-get -y install python-bottle
+sudo apt-get install python-pip
+sudo apt-get -y install python3-bottle
 sudo pip install azure
 
 # create a service
