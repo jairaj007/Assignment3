@@ -13,13 +13,7 @@ hostname = socket.gethostname()
 hostport = 9000
 keepworking = False  # boolean to switch worker thread on or off
 
-
-bus_service = ServiceBusService(
-    service_namespace='jairaj007',
-    shared_access_key_name='RootManageSharedAccessKey',
-    shared_access_key_value='lGSHGfaf8RBQ9lHbso85PCvGD2BCBVzpMKHHXLwluhg=')
 	
-
 
 # thread which maximizes CPU usage while the keepWorking global is True
 def workerthread():
@@ -53,9 +47,8 @@ def writebody():
 
 @route('/')
 def root():
-	msg = bus_service.receive_queue_message('myqueue', peek_lock=True)
-	return(msg.body)
-	msg.delete()
+	return("Hello")
+
 
 
 @route('/do_work')
