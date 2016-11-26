@@ -17,9 +17,9 @@ def writebody():
         service_namespace='vmsseight',
         shared_access_key_name='ListenOneTime',
         shared_access_key_value='OhFgmG5Cr/K9aOrE29YL7eXERzmUb3Fpf7J+FoBhiMw=')
-msg = bus_service.receive_queue_message('myqueue', peek_lock=False)	
+    msg = bus_service.receive_queue_message('myqueue', peek_lock=False)	
     msg.delete()
-    return msg
+   return msg
 
 
 @route('/')
