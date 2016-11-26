@@ -5,8 +5,6 @@ import math
 import socket
 import threading
 import time
-from azure.servicebus import ServiceBusService, Message, Queue
-from azure.servicebus import Message
 from bottle import route, run
 
 hostname = socket.gethostname()
