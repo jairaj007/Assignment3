@@ -266,7 +266,7 @@
                   "settings": {
                     "fileUris": [
                       "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-bottle-autoscale/installserver.sh",
-                      "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-bottle-autoscale/workserver.py"
+                      "https://raw.githubusercontent.com/jairaj007/Assignment3/master/workserver.py"
                     ],
                     "commandToExecute": "bash installserver.sh"
                   }
