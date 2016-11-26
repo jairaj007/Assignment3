@@ -6,14 +6,12 @@ import socket
 import threading
 import time
 
-from azure.servicebus import ServiceBusService, Message, Queue
+
 from bottle import route, run
 
 hostname = socket.gethostname()
 hostport = 9000
 
-
-	
 @route('/')
 def root():
     return ("HELLO")
