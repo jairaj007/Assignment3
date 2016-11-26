@@ -45,8 +45,7 @@ def writebody():
 
 @route('/')
 def root():
-	return("Hello")
-
+    return writebody()
 
 
 @route('/do_work')
