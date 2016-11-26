@@ -4,10 +4,10 @@ mkdir $workserver_path
 cp workserver.py $workserver_path
 
 # install python3-bottle 
-apt-get -y update
-apt-get install python-pip
-apt-get -y install python-bottle
-pip install azure
+sudo apt-get -y update
+sudo apt-get install python-pip
+sudo apt-get -y install python-bottle
+sudo pip install azure
 
 # create a service
 touch /etc/systemd/system/workserver.service
