@@ -14,9 +14,9 @@ hostport = 9000
 
 def writebody():
     bus_read_service = ServiceBusService(
-        service_namespace='vmsseight',
-        shared_access_key_name='ListenOneTime',
-        shared_access_key_value='OhFgmG5Cr/K9aOrE29YL7eXERzmUb3Fpf7J+FoBhiMw=')
+        service_namespace='jairaj007',
+        shared_access_key_name='RootManageSharedAccessKey',
+        shared_access_key_value='lGSHGfaf8RBQ9lHbso85PCvGD2BCBVzpMKHHXLwluhg=')
     msg = bus_service.receive_queue_message('myqueue', peek_lock=False)	
     msg.delete()
    return msg
