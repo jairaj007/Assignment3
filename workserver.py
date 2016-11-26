@@ -25,9 +25,9 @@ bus_service = ServiceBusService(
 	
 @route('/')
 def root():
-	msg = bus_service.receive_queue_message('myqueue', peek_lock=True)	
-	msg.delete()
-	return(msg.body)
+    msg = bus_service.receive_queue_message('myqueue', peek_lock=True)	
+    msg.delete()
+    return(msg.body)
 
 
 run(host=hostname, port=hostport)
