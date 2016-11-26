@@ -10,7 +10,6 @@ import time
 
 hostname = socket.gethostname()
 hostport = 80
-keepworking = False  # boolean to switch worker thread on or off
 
 
 from azure.servicebus import ServiceBusService, Message, Queue
@@ -31,6 +30,7 @@ bus_service = ServiceBusService(
 	
 @route('/')
 def root():
+	return writebody()
 	msg = bus_service.receive_queue_message('myqueue', peek_lock=True)
 	return(msg.body)
 	msg.delete()
