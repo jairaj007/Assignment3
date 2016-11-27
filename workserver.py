@@ -24,7 +24,7 @@ def workerthread():
     while (True):
         # main loop to thrash the CPI
         while (keepworking == True):
-            msg = bus_read_service.receive_queue_message('vmsseightqueue', peek_lock=False)
+            msg = bus_read_service.receive_queue_message('myqueue', peek_lock=False)
             msg.delete()
         time.sleep(3)
 
