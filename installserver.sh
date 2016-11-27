@@ -8,6 +8,7 @@ apt-get -y update
 apt-get install python-pip
 pip install --upgrade pip
 apt-get -y install python3-bottle
+pip install azure-storage
 pip install azure
 
 # create a service
