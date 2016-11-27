@@ -14,7 +14,6 @@ hostport = 80
 
 
 def writebody():
-
     bus_service = ServiceBusService(
         service_namespace='jairaj007',
         shared_access_key_name='RootManageSharedAccessKey',
