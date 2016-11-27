@@ -26,7 +26,6 @@ def writebody():
 	
 @route('/')
 def root():
-    table_service = TableService(account_name='6905assignment2',account_key='uO9P8uhYWle7s8dePugaMqsMjtvQhkyhDHHlfF1d7CiAgI+XriPsTb0ROSlP5/Y1OFsxWdgXQlbSknIxjTao1w==')
     return ("Hello")
 	
 @route('/do_work')
