@@ -15,18 +15,21 @@ hostport = 9000
 
 def writebody():
     from azure.servicebus import ServiceBusService, Message, Queue
-	bus_service = ServiceBusService(
-		service_namespace='jairaj007',
-		shared_access_key_name='RootManageSharedAccessKey',
-		shared_access_key_value='lGSHGfaf8RBQ9lHbso85PCvGD2BCBVzpMKHHXLwluhg=')
-	msg = bus_service.receive_queue_message('myqueue', peek_lock=True)	
-	msg.delete()
-	return msg.body
+    bus_service = ServiceBusService(
+        service_namespace='jairaj007',
+        shared_access_key_name='RootManageSharedAccessKey',
+        shared_access_key_value='lGSHGfaf8RBQ9lHbso85PCvGD2BCBVzpMKHHXLwluhg=')
+    msg = bus_service.receive_queue_message('myqueue', peek_lock=True)	
+    msg.delete()
+    return msg.body
 
 	
 @route('/')
 def root():
+    return ("Hello")
+	
+@route('/do_work')
+def do_work():
     return writebody()
 	
-
 run(host=hostname, port=hostport)
