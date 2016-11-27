@@ -7,14 +7,14 @@ import threading
 import time
 
 from bottle import route, run
-
+from azure.servicebus import ServiceBusService, Message, Queue
 hostname = socket.gethostname()
-hostport = 9000
+hostport = 80
 
 
 
 def writebody():
-    from azure.servicebus import ServiceBusService, Message, Queue
+
     bus_service = ServiceBusService(
         service_namespace='jairaj007',
         shared_access_key_name='RootManageSharedAccessKey',
