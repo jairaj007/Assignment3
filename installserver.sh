@@ -1,25 +1,26 @@
-#!/bin/bash
-workserver_path=/srv/workserver
-mkdir $workserver_path
-cp workserver.py $workserver_path
+sudo apt-get -y update
+sudo apt-get -y install apache2
+sudo apache2ctl configtest
+sudo apt-get install -y php5
+sudo apt install libapache2-mod-php
+sudo apt-get install -y curl php5-cli git
+sudo apt-get install -y wget
 
-# install python3-bottle 
-apt-get -y update
-apt-get install python-pip
-pip install --upgrade pip
-apt-get -y install python3-bottle
-pip install azure-storage
-pip install azure
+sudo curl -sS https://getcomposer.org/installer | php
 
-# create a service
-touch /etc/systemd/system/workserver.service
-printf '[Unit]\nDescription=workServer Service\nAfter=rc-local.service\n' >> /etc/systemd/system/workserver.service
-printf '[Service]\nWorkingDirectory=%s\n' $workserver_path >> /etc/systemd/system/workserver.service
-printf 'ExecStart=/usr/bin/python3 %s/workserver.py\n' $workserver_path >> /etc/systemd/system/workserver.service
-printf 'ExecReload=/bin/kill -HUP $MAINPID\nKillMode=process\nRestart=on-failure\n' >> /etc/systemd/system/workserver.service
-printf '[Install]\nWantedBy=multi-user.target\nAlias=workserver.service' >> /etc/systemd/system/workserver.service
+cd /var/www/html
+sudo wget https://raw.githubusercontent.com/jairaj007/Assignment3/master/index.php
+#if you need composer, enable these lines
+sudo wget https://raw.githubusercontent.com/jairaj007/Assignment3/master/composer.json
+sudo wget http://getcomposer.org/composer.phar
+sudo php composer.phar install
+sudo rm /var/www/html/index.html
 
-systemctl start workserver
+cd
+echo "ServerName localhost" | sudo tee /etc/apache2/conf-available/servername.conf
+sudo a2enconf servername
+cd /var/www/html
+sudo service apache2 restart
 
 
 
