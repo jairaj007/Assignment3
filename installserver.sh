@@ -1,8 +1,5 @@
-sudo apt-get -y update
 sudo apt-get -y install apache2
-sudo apache2ctl configtest
 sudo apt-get install -y php5
-sudo apt install libapache2-mod-php
 sudo apt-get install -y curl php5-cli git
 sudo apt-get install -y wget
 
