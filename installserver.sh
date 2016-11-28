@@ -21,6 +21,7 @@ echo "ServerName localhost" | sudo tee /etc/apache2/conf-available/servername.co
 sudo a2enconf servername
 cd /var/www/html
 sudo service apache2 restart
-
+sudo apt-get install -y links2
+links2 http://localhost
 
 
