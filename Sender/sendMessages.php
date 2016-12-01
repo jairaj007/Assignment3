@@ -3,7 +3,7 @@
 
 echo "<h1>Generating Requests</h1>";
 
-require_once 'vendor\autoload.php';
+require_once "vendor\autoload.php";
 use WindowsAzure\Common\ServicesBuilder;
 use WindowsAzure\Common\ServiceException;
 use WindowsAzure\ServiceBus\Models\QueueInfo;
