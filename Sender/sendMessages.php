@@ -1,14 +1,15 @@
 <?php
 
-
-echo "<h1>Generating Requests</h1>";
-
-require_once "vendor\autoload.php";
+require_once "vendor/autoload.php";
 use WindowsAzure\Common\ServicesBuilder;
 use WindowsAzure\Common\ServiceException;
 use WindowsAzure\ServiceBus\Models\QueueInfo;
 use WindowsAzure\ServiceBus\Models\BrokeredMessage;
 use WindowsAzure\ServiceBus\Models\ReceiveMessageOptions;
+use MicrosoftAzure\Storage\Table\Models\Entity;
+use MicrosoftAzure\Storage\Table\Models\EdmType;
+use MicrosoftAzure\Storage\Table\Models\QueryEntitiesOptions;
+
 
 
 
