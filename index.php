@@ -30,7 +30,7 @@ try    {
 	
 	$i=1;
 	$message = $serviceBusRestProxy->receiveQueueMessage("myqueue", $options);
-	while($message!=null){
+	while(!$message==null){
 			$message = $serviceBusRestProxy->receiveQueueMessage("myqueue", $options);
 			$transaction=($message->getBody());
 			echo "MessageID: ".$message->getMessageId()."<br />";
@@ -42,12 +42,12 @@ try    {
 			
 			$transaction = json_decode($transaction);
 			echo $transaction->{'TransactionID'};
-		
+			$num = $i + rand(1,10000) + rand(1,10000);
 			// Delete message. Not necessary if peek lock is not set.
 			echo "Message deleted.<br />";
 			$entity = new Entity();
 				$entity->setPartitionKey("5");
-				$entity->setRowKey("$i+1");
+				$entity->setRowKey("$num");
 				$entity->addProperty("TransactionID",EdmType::INT32, $transaction->{'TransactionID'});
 				$entity->addProperty("UserID",EdmType::INT32, $transaction->{'UserID'});
 				$entity->addProperty("SellerID",EdmType::INT32, $transaction->{'SellerID'});
