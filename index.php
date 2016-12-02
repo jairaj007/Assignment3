@@ -50,9 +50,9 @@ try    {
 				$entity->addProperty("TransactionID",EdmType::INT32, $transaction->{'TransactionID'});
 				$entity->addProperty("UserID",EdmType::INT32, $transaction->{'UserID'});
 				$entity->addProperty("SellerID",EdmType::INT32, $transaction->{'SellerID'});
-				$entity->addProperty("Product Name",EdmType::STRING, $transaction->{'Product Name'});
-				$entity->addProperty("Sale Price",EdmType::INT32, $transaction->{'Sale Price'});
-				$entity->addProperty("Transaction Date",EdmType::INT32, $i);
+				$entity->addProperty("ProductName",EdmType::STRING, $transaction->{'Product Name'});
+				$entity->addProperty("SalePrice",EdmType::INT32, $transaction->{'Sale Price'});
+				$entity->addProperty("TransactionDate",EdmType::INT32, $i);
 				try{
 					$tableRestProxy->insertEntity("suitEventStore", $entity);
 				}
@@ -81,4 +81,3 @@ catch(ServiceException $e){
 	
 }
 ?>
-
