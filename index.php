@@ -29,7 +29,8 @@ try    {
     // Receive message.
 	
 	$i=1;
-	while($i<=1000000){
+	$message = $serviceBusRestProxy->receiveQueueMessage("myqueue", $options);
+	while($message!=null){
 			$message = $serviceBusRestProxy->receiveQueueMessage("myqueue", $options);
 			$transaction=($message->getBody());
 			echo "MessageID: ".$message->getMessageId()."<br />";
