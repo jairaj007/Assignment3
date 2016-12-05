@@ -19,7 +19,6 @@ if( !Thread::isAvailable() ) {
 
 
 
-
 function recieve(){
 $connectionString = "Endpoint=https://jairaj007.servicebus.windows.net/;SharedSecretIssuer=owner;SharedSecretValue=NT7d6BIJQdoPD7JW1ujKAAsfLk50jJyguSc7FYdn7Sc=";
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
@@ -49,7 +48,7 @@ try    {
 			
 			$num = $transaction->{'TransactionID'};
 			//END
-			if(!$transaction->{'SellerIDdd'}){
+			if((json_last_error() == JSON_ERROR_NONE)){
 
 				$entity = new Entity();
 					$entity->setPartitionKey("5");
@@ -80,9 +79,8 @@ try    {
 								$entity = new Entity();
 					$entity->setPartitionKey("5");
 					$entity->setRowKey("$num");
-				$entity->addProperty("TransactionID",EdmType::INT32, $transaction->{'TransactionID'});
-				$entity->addProperty("Failed",EdmType::INT32, $transaction->{'UserID'}."".$transaction->{'SellerIDdd'}."".$transaction->{'ProductName'}."".$transaction->{'SalePrice'});
-									try{
+				$entity->addProperty("Transaction",EdmType::INT32, $transaction);
+						try{
 						$tableRestProxy->insertEntity("Failures", $entity);
 					}
 					catch(ServiceException $e){
