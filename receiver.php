@@ -49,10 +49,9 @@ try    {
 			echo $transaction->{'TransactionID'};
 			$num = $i + rand(1,10000) + rand(1,10000);
 			// Delete message. Not necessary if peek lock is not set.
-			echo "Message deleted.<br />";
 			$entity = new Entity();
 				$entity->setPartitionKey("5");
-				$entity->setRowKey("$num");
+				$entity->setRowKey("$transaction->{'TransactionID'}");
 				$entity->addProperty("TransactionID",EdmType::INT32, $transaction->{'TransactionID'});
 				$entity->addProperty("UserID",EdmType::INT32, $transaction->{'UserID'});
 				$entity->addProperty("SellerID",EdmType::INT32, $transaction->{'SellerID'});
