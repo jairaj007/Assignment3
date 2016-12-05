@@ -8,7 +8,7 @@ from bottle import run, route
 
 
 hostname = socket.gethostname()
-hostport = 1080
+hostport = 80
 
 def writebody():
     bus_service = ServiceBusService(
