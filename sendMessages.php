@@ -1,7 +1,8 @@
 <?php
 
-
+require_once( 'Thread.php' );
 require_once "vendor/autoload.php";
+
 use WindowsAzure\Common\ServicesBuilder;
 use WindowsAzure\Common\ServiceException;
 use WindowsAzure\ServiceBus\Models\QueueInfo;
@@ -10,6 +11,11 @@ use WindowsAzure\ServiceBus\Models\ReceiveMessageOptions;
 use MicrosoftAzure\Storage\Table\Models\Entity;
 use MicrosoftAzure\Storage\Table\Models\EdmType;
 use MicrosoftAzure\Storage\Table\Models\QueryEntitiesOptions;
+
+
+if( !Thread::isAvailable() ) {
+    print( 'Threads not supported' );
+}
 
 
 
@@ -32,11 +38,13 @@ $names[2] = "Auditing";
 $names[3] = "T1 Lines";
 
 
-	
-try    {
+
+// define the function to be run as a separate thread
+function send() {
+    try    {
     // Create message.
 	$i=1;
-	while($i<=1000000){
+	while($i<=300000){
 		$arr["TransactionID"] = $i;
 		$arr["UserID"] = rand(1, 10);
 		$arr["SellerID"] = rand(1, 10);
@@ -61,7 +69,40 @@ catch(ServiceException $e){
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";
 }
+}
 
+
+$threads = array();
+$index = 0;	
+
+$t1 = new Thread( 'send' );
+$t2 = new Thread( 'send' );
+$t3 = new Thread( 'send' );
+$t4 = new Thread( 'send' );
+$t5 = new Thread( 'send' );
+$t6 = new Thread( 'send' );
+$t7 = new Thread( 'send' );
+$t8 = new Thread( 'send' );
+$t9 = new Thread( 'send' );
+$t10 = new Thread( 'send' );
+
+// start them
+$t1->start( 10, 't1' );
+$t2->start( 10, 't2' );
+$t3->start( 10, 't3' );
+$t4->start( 10, 't4' );
+$t5->start( 10, 't5' );
+$t6->start( 10, 't6' );
+$t7->start( 10, 't7' );
+$t8->start( 10, 't8' );
+$t9->start( 10, 't9' );
+$t10->start( 10, 't10' );
+
+
+// keep the program running until the threads finish
+while( $t1->isAlive() && $t2->isAlive() ) {
+    sleep(1);
+}
 
 
 ?>
