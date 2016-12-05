@@ -38,17 +38,14 @@ try    {
 	$message = $serviceBusRestProxy->receiveQueueMessage("myqueue", $options);
 	while(!$message==null){
 			$message = $serviceBusRestProxy->receiveQueueMessage("myqueue", $options);
-			$transaction=($message->getBody());
-			echo "MessageID: ".$message->getMessageId()."<br />";
-			
+			$transaction=($message->getBody());			
 			//check if Transaction to ensure it is valid 
-			
-
-			
 			$transaction = json_decode($transaction);
 			echo $transaction->{'TransactionID'};
 			$num = $i + rand(1,10000) + rand(1,10000);
 			// Delete message. Not necessary if peek lock is not set.
+		
+		
 			$entity = new Entity();
 				$entity->setPartitionKey("5");
 				$entity->setRowKey("$transaction->{'TransactionID'}");
