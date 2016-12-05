@@ -34,15 +34,15 @@ $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($
     // Create message.
 	$i=1;
 	while($i<=20000){
-		
 		if($i%10000==0){
 			$arr["TransactionID"] = $i;
 			$arr["UserID"] = rand(1, 10);
-			$arr["SellerIDdd"] = rand(1, 10);
+			$arr["SellerID"] = rand(1, 10);
 			$arr["ProductName"] = $names[rand(0,3)];
 			$arr["SalePrice"] = rand(100,100000);
 			$arr["Transaction Date"] = date("m.d.y");
 			$message = new BrokeredMessage();
+			$message->setBody($arr);
 		}
 		else{
 			$arr["TransactionID"] = $i;
@@ -52,9 +52,9 @@ $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($
 			$arr["SalePrice"] = rand(100,100000);
 			$arr["Transaction Date"] = date("m.d.y");
 			$message = new BrokeredMessage();
+			$message->setBody(json_encode($arr,true));
 		}
-		$message->setBody(json_encode($arr,true));
-		
+
 		// Send message.
 		$serviceBusRestProxy->sendQueueMessage("myqueue", $message);
 		$i=$i+1;
@@ -87,11 +87,12 @@ $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($
 		if($i%10000==0){
 			$arr["TransactionID"] = $i;
 			$arr["UserID"] = rand(1, 10);
-			$arr["SellerIDdd"] = rand(1, 10);
+			$arr["SellerID"] = rand(1, 10);
 			$arr["ProductName"] = $names[rand(0,3)];
 			$arr["SalePrice"] = rand(100,100000);
 			$arr["Transaction Date"] = date("m.d.y");
 			$message = new BrokeredMessage();
+			$message->setBody($arr);
 		}
 		else{
 			$arr["TransactionID"] = $i;
@@ -101,10 +102,10 @@ $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($
 			$arr["SalePrice"] = rand(100,100000);
 			$arr["Transaction Date"] = date("m.d.y");
 			$message = new BrokeredMessage();
+			$message->setBody(json_encode($arr,true));
 		}
-		
-		$message->setBody(json_encode($arr,true));
-		
+
+
 		// Send message.
 		$serviceBusRestProxy->sendQueueMessage("myqueue", $message);
 		$i=$i+1;
@@ -137,11 +138,12 @@ $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($
 		if($i%10000==0){
 			$arr["TransactionID"] = $i;
 			$arr["UserID"] = rand(1, 10);
-			$arr["SellerIDdd"] = rand(1, 10);
+			$arr["SellerID"] = rand(1, 10);
 			$arr["ProductName"] = $names[rand(0,3)];
 			$arr["SalePrice"] = rand(100,100000);
 			$arr["Transaction Date"] = date("m.d.y");
 			$message = new BrokeredMessage();
+			$message->setBody($arr);
 		}
 		else{
 			$arr["TransactionID"] = $i;
@@ -151,10 +153,10 @@ $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($
 			$arr["SalePrice"] = rand(100,100000);
 			$arr["Transaction Date"] = date("m.d.y");
 			$message = new BrokeredMessage();
+			$message->setBody(json_encode($arr,true));
 		}
-		$message = new BrokeredMessage();
+
 		
-		$message->setBody(json_encode($arr,true));
 		
 		// Send message.
 		$serviceBusRestProxy->sendQueueMessage("myqueue", $message);
@@ -188,11 +190,12 @@ $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($
 		if($i%10000==0){
 			$arr["TransactionID"] = $i;
 			$arr["UserID"] = rand(1, 10);
-			$arr["SellerIDdd"] = rand(1, 10);
+			$arr["SellerID"] = rand(1, 10);
 			$arr["ProductName"] = $names[rand(0,3)];
 			$arr["SalePrice"] = rand(100,100000);
 			$arr["Transaction Date"] = date("m.d.y");
 			$message = new BrokeredMessage();
+			$message->setBody($arr);
 		}
 		else{
 			$arr["TransactionID"] = $i;
@@ -202,8 +205,9 @@ $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($
 			$arr["SalePrice"] = rand(100,100000);
 			$arr["Transaction Date"] = date("m.d.y");
 			$message = new BrokeredMessage();
+			$message->setBody(json_encode($arr,true));
 		}
-		$message->setBody(json_encode($arr,true));
+
 		
 		// Send message.
 		$serviceBusRestProxy->sendQueueMessage("myqueue", $message);
@@ -237,11 +241,12 @@ $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($
 		if($i%10000==0){
 			$arr["TransactionID"] = $i;
 			$arr["UserID"] = rand(1, 10);
-			$arr["SellerIDdd"] = rand(1, 10);
+			$arr["SellerID"] = rand(1, 10);
 			$arr["ProductName"] = $names[rand(0,3)];
 			$arr["SalePrice"] = rand(100,100000);
 			$arr["Transaction Date"] = date("m.d.y");
 			$message = new BrokeredMessage();
+			$message->setBody($arr);
 		}
 		else{
 			$arr["TransactionID"] = $i;
@@ -251,11 +256,9 @@ $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($
 			$arr["SalePrice"] = rand(100,100000);
 			$arr["Transaction Date"] = date("m.d.y");
 			$message = new BrokeredMessage();
+			$message->setBody(json_encode($arr,true));
 		}
-		$message = new BrokeredMessage();
-		
-		$message->setBody(json_encode($arr,true));
-		
+
 		// Send message.
 		$serviceBusRestProxy->sendQueueMessage("myqueue", $message);
 		$i=$i+1;
@@ -288,11 +291,12 @@ $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($
 		if($i%10000==0){
 			$arr["TransactionID"] = $i;
 			$arr["UserID"] = rand(1, 10);
-			$arr["SellerIDdd"] = rand(1, 10);
+			$arr["SellerID"] = rand(1, 10);
 			$arr["ProductName"] = $names[rand(0,3)];
 			$arr["SalePrice"] = rand(100,100000);
 			$arr["Transaction Date"] = date("m.d.y");
 			$message = new BrokeredMessage();
+			$message->setBody($arr);
 		}
 		else{
 			$arr["TransactionID"] = $i;
@@ -302,10 +306,9 @@ $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($
 			$arr["SalePrice"] = rand(100,100000);
 			$arr["Transaction Date"] = date("m.d.y");
 			$message = new BrokeredMessage();
+			$message->setBody(json_encode($arr,true));
 		}
-		$message = new BrokeredMessage();
-		
-		$message->setBody(json_encode($arr,true));
+
 		
 		// Send message.
 		$serviceBusRestProxy->sendQueueMessage("myqueue", $message);
@@ -338,11 +341,12 @@ $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($
 		if($i%10000==0){
 			$arr["TransactionID"] = $i;
 			$arr["UserID"] = rand(1, 10);
-			$arr["SellerIDdd"] = rand(1, 10);
+			$arr["SellerID"] = rand(1, 10);
 			$arr["ProductName"] = $names[rand(0,3)];
 			$arr["SalePrice"] = rand(100,100000);
 			$arr["Transaction Date"] = date("m.d.y");
 			$message = new BrokeredMessage();
+			$message->setBody($arr);
 		}
 		else{
 			$arr["TransactionID"] = $i;
@@ -352,10 +356,9 @@ $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($
 			$arr["SalePrice"] = rand(100,100000);
 			$arr["Transaction Date"] = date("m.d.y");
 			$message = new BrokeredMessage();
+			$message->setBody(json_encode($arr,true));
 		}
-		
-		$message->setBody(json_encode($arr,true));
-		
+
 		// Send message.
 		$serviceBusRestProxy->sendQueueMessage("myqueue", $message);
 		$i=$i+1;
@@ -387,11 +390,12 @@ $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($
 		if($i%10000==0){
 			$arr["TransactionID"] = $i;
 			$arr["UserID"] = rand(1, 10);
-			$arr["SellerIDdd"] = rand(1, 10);
+			$arr["SellerID"] = rand(1, 10);
 			$arr["ProductName"] = $names[rand(0,3)];
 			$arr["SalePrice"] = rand(100,100000);
 			$arr["Transaction Date"] = date("m.d.y");
 			$message = new BrokeredMessage();
+			$message->setBody($arr);
 		}
 		else{
 			$arr["TransactionID"] = $i;
@@ -401,10 +405,9 @@ $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($
 			$arr["SalePrice"] = rand(100,100000);
 			$arr["Transaction Date"] = date("m.d.y");
 			$message = new BrokeredMessage();
+			$message->setBody(json_encode($arr,true));
 		}
-		$message = new BrokeredMessage();
-		
-		$message->setBody(json_encode($arr,true));
+
 		
 		// Send message.
 		$serviceBusRestProxy->sendQueueMessage("myqueue", $message);
@@ -437,11 +440,12 @@ $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($
 		if($i%10000==0){
 			$arr["TransactionID"] = $i;
 			$arr["UserID"] = rand(1, 10);
-			$arr["SellerIDdd"] = rand(1, 10);
+			$arr["SellerID"] = rand(1, 10);
 			$arr["ProductName"] = $names[rand(0,3)];
 			$arr["SalePrice"] = rand(100,100000);
 			$arr["Transaction Date"] = date("m.d.y");
 			$message = new BrokeredMessage();
+			$message->setBody($arr);
 		}
 		else{
 			$arr["TransactionID"] = $i;
@@ -451,10 +455,9 @@ $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($
 			$arr["SalePrice"] = rand(100,100000);
 			$arr["Transaction Date"] = date("m.d.y");
 			$message = new BrokeredMessage();
+			$message->setBody(json_encode($arr,true));
 		}
-		$message = new BrokeredMessage();
-		
-		$message->setBody(json_encode($arr,true));
+
 		
 		// Send message.
 		$serviceBusRestProxy->sendQueueMessage("myqueue", $message);
@@ -488,11 +491,12 @@ $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($
 		if($i%10000==0){
 			$arr["TransactionID"] = $i;
 			$arr["UserID"] = rand(1, 10);
-			$arr["SellerIDdd"] = rand(1, 10);
+			$arr["SellerID"] = rand(1, 10);
 			$arr["ProductName"] = $names[rand(0,3)];
 			$arr["SalePrice"] = rand(100,100000);
 			$arr["Transaction Date"] = date("m.d.y");
 			$message = new BrokeredMessage();
+			$message->setBody($arr);
 		}
 		else{
 			$arr["TransactionID"] = $i;
@@ -502,10 +506,9 @@ $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($
 			$arr["SalePrice"] = rand(100,100000);
 			$arr["Transaction Date"] = date("m.d.y");
 			$message = new BrokeredMessage();
+			$message->setBody(json_encode($arr,true));
 		}
-		$message = new BrokeredMessage();
-		
-		$message->setBody(json_encode($arr,true));
+
 		
 		// Send message.
 		$serviceBusRestProxy->sendQueueMessage("myqueue", $message);
@@ -540,11 +543,12 @@ $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($
 		if($i%10000==0){
 			$arr["TransactionID"] = $i;
 			$arr["UserID"] = rand(1, 10);
-			$arr["SellerIDdd"] = rand(1, 10);
+			$arr["SellerID"] = rand(1, 10);
 			$arr["ProductName"] = $names[rand(0,3)];
 			$arr["SalePrice"] = rand(100,100000);
 			$arr["Transaction Date"] = date("m.d.y");
 			$message = new BrokeredMessage();
+			$message->setBody($arr);
 		}
 		else{
 			$arr["TransactionID"] = $i;
@@ -554,10 +558,9 @@ $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($
 			$arr["SalePrice"] = rand(100,100000);
 			$arr["Transaction Date"] = date("m.d.y");
 			$message = new BrokeredMessage();
+			$message->setBody(json_encode($arr,true));
 		}
-		$message = new BrokeredMessage();
-		
-		$message->setBody(json_encode($arr,true));
+
 		
 		// Send message.
 		$serviceBusRestProxy->sendQueueMessage("myqueue", $message);
@@ -591,11 +594,12 @@ $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($
 		if($i%10000==0){
 			$arr["TransactionID"] = $i;
 			$arr["UserID"] = rand(1, 10);
-			$arr["SellerIDdd"] = rand(1, 10);
+			$arr["SellerID"] = rand(1, 10);
 			$arr["ProductName"] = $names[rand(0,3)];
 			$arr["SalePrice"] = rand(100,100000);
 			$arr["Transaction Date"] = date("m.d.y");
 			$message = new BrokeredMessage();
+			$message->setBody($arr);
 		}
 		else{
 			$arr["TransactionID"] = $i;
@@ -605,10 +609,9 @@ $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($
 			$arr["SalePrice"] = rand(100,100000);
 			$arr["Transaction Date"] = date("m.d.y");
 			$message = new BrokeredMessage();
+			$message->setBody(json_encode($arr,true));
 		}
-		$message = new BrokeredMessage();
-		
-		$message->setBody(json_encode($arr,true));
+
 		
 		// Send message.
 		$serviceBusRestProxy->sendQueueMessage("myqueue", $message);
@@ -641,11 +644,12 @@ $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($
 		if($i%10000==0){
 			$arr["TransactionID"] = $i;
 			$arr["UserID"] = rand(1, 10);
-			$arr["SellerIDdd"] = rand(1, 10);
+			$arr["SellerID"] = rand(1, 10);
 			$arr["ProductName"] = $names[rand(0,3)];
 			$arr["SalePrice"] = rand(100,100000);
 			$arr["Transaction Date"] = date("m.d.y");
 			$message = new BrokeredMessage();
+			$message->setBody($arr);
 		}
 		else{
 			$arr["TransactionID"] = $i;
@@ -655,11 +659,9 @@ $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($
 			$arr["SalePrice"] = rand(100,100000);
 			$arr["Transaction Date"] = date("m.d.y");
 			$message = new BrokeredMessage();
+			$message->setBody(json_encode($arr,true));
 		}
-		$message = new BrokeredMessage();
-		
-		$message->setBody(json_encode($arr,true));
-		
+
 		// Send message.
 		$serviceBusRestProxy->sendQueueMessage("myqueue", $message);
 		$i=$i+1;
@@ -691,11 +693,12 @@ $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($
 		if($i%10000==0){
 			$arr["TransactionID"] = $i;
 			$arr["UserID"] = rand(1, 10);
-			$arr["SellerIDdd"] = rand(1, 10);
+			$arr["SellerID"] = rand(1, 10);
 			$arr["ProductName"] = $names[rand(0,3)];
 			$arr["SalePrice"] = rand(100,100000);
 			$arr["Transaction Date"] = date("m.d.y");
 			$message = new BrokeredMessage();
+			$message->setBody($arr);
 		}
 		else{
 			$arr["TransactionID"] = $i;
@@ -705,11 +708,9 @@ $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($
 			$arr["SalePrice"] = rand(100,100000);
 			$arr["Transaction Date"] = date("m.d.y");
 			$message = new BrokeredMessage();
+			$message->setBody(json_encode($arr,true));
 		}
-		$message = new BrokeredMessage();
-		
-		$message->setBody(json_encode($arr,true));
-		
+
 		// Send message.
 		$serviceBusRestProxy->sendQueueMessage("myqueue", $message);
 		$i=$i+1;
@@ -741,11 +742,12 @@ $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($
 		if($i%10000==0){
 			$arr["TransactionID"] = $i;
 			$arr["UserID"] = rand(1, 10);
-			$arr["SellerIDdd"] = rand(1, 10);
+			$arr["SellerID"] = rand(1, 10);
 			$arr["ProductName"] = $names[rand(0,3)];
 			$arr["SalePrice"] = rand(100,100000);
 			$arr["Transaction Date"] = date("m.d.y");
 			$message = new BrokeredMessage();
+			$message->setBody($arr);
 		}
 		else{
 			$arr["TransactionID"] = $i;
@@ -755,11 +757,9 @@ $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($
 			$arr["SalePrice"] = rand(100,100000);
 			$arr["Transaction Date"] = date("m.d.y");
 			$message = new BrokeredMessage();
+			$message->setBody(json_encode($arr,true));
 		}
-		$message = new BrokeredMessage();
-		
-		$message->setBody(json_encode($arr,true));
-		
+
 		// Send message.
 		$serviceBusRestProxy->sendQueueMessage("myqueue", $message);
 		$i=$i+1;
