@@ -16,26 +16,6 @@ if( !Thread::isAvailable() ) {
 }
 
 
-$connectionString = "Endpoint=https://jairaj007.servicebus.windows.net/;SharedSecretIssuer=owner;SharedSecretValue=NT7d6BIJQdoPD7JW1ujKAAsfLk50jJyguSc7FYdn7Sc=";
-$serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
-	  $connectionString2="DefaultEndpointsProtocol=http;AccountName=assignment3;AccountKey=pylccY8a9IifBUoAFs4iVz3013UtR13hIWvWMRVSti3AI7CFFbtmFxnSDxsDnXkwUO12z4B3mfpi2n3SAnO2eg==";
-
-
-// Create table REST proxy.
-$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString2);
-    
-try {
-    // Create table.
-	$tableRestProxy->createTable("Transaction");
-
-}
-catch(ServiceException $e){
-    $code = $e->getCode();
-    $error_message = $e->getMessage();
-    // Handle exception based on error codes and messages.
-    // Error codes and messages can be found here:
-    // http://msdn.microsoft.com/library/azure/dd179438.aspx
-	
 
 }	
 
