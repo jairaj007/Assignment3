@@ -839,7 +839,7 @@ $t6->start( 10, 't6' );
 $t7->start( 10, 't7' );
 $t8->start( 10, 't8' );
 $t9->start( 10, 't9' );
-$t10>start( 10, 't10' );
+$t10->start( 10, 't10' );
 $t11->start( 10, 't11' );
 $t12->start( 10, 't12' );
 $t13->start( 10, 't13' );
