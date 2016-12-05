@@ -24,7 +24,7 @@ def workerthread():
     while (True):
         # main loop to thrash the CPI
         while (keepworking == True):
-            msg = bus_read_service.receive_queue_message('myqueue', peek_lock=False)
+            msg = bus_service.receive_queue_message('myqueue', peek_lock=False)
         time.sleep(3)
 
 
@@ -69,3 +69,4 @@ def stop_work():
 
 
 run(host=hostname, port=hostport)
+
