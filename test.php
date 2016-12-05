@@ -2,7 +2,7 @@
 require_once( 'Thread.php' );
  
 // test to see if threading is available
-if( ! Thread::available() ) {
+if( ! Thread::isAvailable() ) {
     die( 'Threads not supported' );
 }
  
