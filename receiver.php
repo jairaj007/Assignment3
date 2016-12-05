@@ -24,20 +24,7 @@ $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($
 // Create table REST proxy.
 $tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString2);
     
-try {
-    // Create table.
-	$tableRestProxy->createTable("Transaction");
-
-}
-catch(ServiceException $e){
-    $code = $e->getCode();
-    $error_message = $e->getMessage();
-    // Handle exception based on error codes and messages.
-    // Error codes and messages can be found here:
-    // http://msdn.microsoft.com/library/azure/dd179438.aspx
 	
-
-}	
 
 
 
@@ -50,7 +37,6 @@ $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($
 
 // Create table REST proxy.
 $tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString2);
-
 
 try    {
     // Set the receive mode to PeekLock (default is ReceiveAndDelete).
