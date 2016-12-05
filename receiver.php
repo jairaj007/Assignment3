@@ -41,14 +41,13 @@ try    {
 			$transaction=($message->getBody());			
 			//check if Transaction to ensure it is valid 
 			$transaction = json_decode($transaction);
-			echo $transaction->{'TransactionID'};
-			$num = $i + rand(1,10000) + rand(1,10000);
+			$num = $transaction->{'TransactionID'};
 			// Delete message. Not necessary if peek lock is not set.
 		
 		
 			$entity = new Entity();
 				$entity->setPartitionKey("5");
-				$entity->setRowKey($transaction->{'TransactionID'});
+				$entity->setRowKey("$num");
 				$entity->addProperty("TransactionID",EdmType::INT32, $transaction->{'TransactionID'});
 				$entity->addProperty("UserID",EdmType::INT32, $transaction->{'UserID'});
 				$entity->addProperty("SellerID",EdmType::INT32, $transaction->{'SellerID'});
