@@ -17,11 +17,6 @@ if( !Thread::isAvailable() ) {
 
 
 
-	
-
-
-
-
 function recieve(){
 $connectionString = "Endpoint=https://jairaj007.servicebus.windows.net/;SharedSecretIssuer=owner;SharedSecretValue=NT7d6BIJQdoPD7JW1ujKAAsfLk50jJyguSc7FYdn7Sc=";
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
@@ -51,7 +46,7 @@ try    {
 			
 			
 			//END
-			if($transaction->{'SellerID'}){
+		
 			
 			$num = $transaction->{'TransactionID'};
 
@@ -79,7 +74,7 @@ try    {
 				
 			
 			$serviceBusRestProxy->deleteMessage($message);
-			}
+			
 			$i=$i+1;
 	}
 }
