@@ -21,16 +21,18 @@ if( !Thread::isAvailable() ) {
 
 
 
+
+
+// define the function to be run as a separate thread
+function send() {
 //array with random product names
 $names[0] = "Finanical Trap";
 $names[1] = "VPN";
 $names[2] = "Auditing";
 $names[3] = "T1 Lines";
 
-
-
-// define the function to be run as a separate thread
-function send() {
+	
+	
 $connectionString="DefaultEndpointsProtocol=http;AccountName=6905assignment2;AccountKey=uO9P8uhYWle7s8dePugaMqsMjtvQhkyhDHHlfF1d7CiAgI+XriPsTb0ROSlP5/Y1OFsxWdgXQlbSknIxjTao1w==";
 
 // Create table REST proxy.
@@ -85,7 +87,16 @@ $t6 = new Thread( 'send' );
 $t7 = new Thread( 'send' );
 $t8 = new Thread( 'send' );
 $t9 = new Thread( 'send' );
-$t10 = new Thread( 'send' );
+$t11 = new Thread( 'send' );
+$t12 = new Thread( 'send' );
+$t13 = new Thread( 'send' );
+$t14 = new Thread( 'send' );
+$t15 = new Thread( 'send' );
+$t16 = new Thread( 'send' );
+$t17 = new Thread( 'send' );
+$t18 = new Thread( 'send' );
+$t19 = new Thread( 'send' );
+
 
 // start them
 $t1->start( 10, 't1' );
@@ -98,10 +109,19 @@ $t7->start( 10, 't7' );
 $t8->start( 10, 't8' );
 $t9->start( 10, 't9' );
 $t10->start( 10, 't10' );
+$t11->start( 10, 't11' );
+$t12->start( 10, 't12' );
+$t13->start( 10, 't13' );
+$t14->start( 10, 't14' );
+$t15->start( 10, 't15' );
+$t16->start( 10, 't16' );
+$t17->start( 10, 't17' );
+$t18->start( 10, 't18' );
+$t19->start( 10, 't19' );
 
 
 // keep the program running until the threads finish
-while( $t1->isAlive() && $t2->isAlive() ) {
+while( $t1->isAlive() && $t2->isAlive() && $t3->isAlive()&& $t4->isAlive()&& $t5->isAlive()&& $t6->isAlive()&& $t7->isAlive()&& $t8->isAlive()&& $t9->isAlive()&& $t10->isAlive()&& $t11->isAlive()&& $t12->isAlive()&& $t19->isAlive()&& $t13->isAlive()&& $t14->isAlive()&& $t15->isAlive()&& $t16->isAlive()&& $t17->isAlive()&& $t18->isAlive()) {
     sleep(1);
 }
 
