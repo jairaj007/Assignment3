@@ -1,3 +1,4 @@
+<?php
 require_once( 'Thread.php' );
  
 // test to see if threading is available
@@ -25,3 +26,4 @@ $t2->start( 10, 't2' );
 while( $t1->isAlive() && $t2->isAlive() ) {
     sleep(1);
 }
+?>
