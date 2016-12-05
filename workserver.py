@@ -1,4 +1,7 @@
-from azure.servicebus import ServiceBusService, Message, Queue
+import math
+import socket
+import threading
+import time
 from bottle import run, route
 
 hostname = socket.gethostname()
