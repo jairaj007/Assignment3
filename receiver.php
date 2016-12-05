@@ -89,21 +89,21 @@ catch(ServiceException $e){
 $threads = array();
 $index = 0;	
 
-$t1 = new Thread( 'receieve' );
-$t2 = new Thread( 'receieve' );
-$t3 = new Thread( 'receieve' );
-$t4 = new Thread( 'receieve' );
-$t5 = new Thread( 'receieve' );
-$t6 = new Thread( 'receieve' );
-$t7 = new Thread( 'receieve' );
-$t8 = new Thread( 'receieve' );
-$t9 = new Thread( 'receieve' );
-$t10 = new Thread( 'receieve' );
-$t11 = new Thread( 'receieve' );
-$t12 = new Thread( 'receieve' );
-$t13 = new Thread( 'receieve' );
-$t14 = new Thread( 'receieve' );
-$t15 = new Thread( 'receieve' );
+$t1 = new Thread( 'recieve' );
+$t2 = new Thread( 'recieve' );
+$t3 = new Thread( 'recieve' );
+$t4 = new Thread( 'recieve' );
+$t5 = new Thread( 'recieve' );
+$t6 = new Thread( 'recieve' );
+$t7 = new Thread( 'recieve' );
+$t8 = new Thread( 'recieve' );
+$t9 = new Thread( 'recieve' );
+$t10 = new Thread( 'recieve' );
+$t11 = new Thread( 'recieve' );
+$t12 = new Thread( 'recieve' );
+$t13 = new Thread( 'recieve' );
+$t14 = new Thread( 'recieve' );
+$t15 = new Thread( 'recieve' );
 
 
 
