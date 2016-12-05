@@ -36,7 +36,7 @@ $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($
     try    {
     // Create message.
 	$i=1;
-	while($i<=30000){
+	while($i<=20000){
 		
 		if($i%10000==0){
 			$arr["TransactionID"] = $i;
@@ -87,8 +87,8 @@ $connectionString = "Endpoint=https://jairaj007.servicebus.windows.net/;SharedSe
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);	
     try    {
     // Create message.
-	$i=30001;
-	while($i<=60000){
+	$i=20001;
+	while($i<=40000){
 		if($i%10000==0){
 			$arr["TransactionID"] = $i;
 			$arr["UserID"] = rand(1, 10);
@@ -139,8 +139,8 @@ $connectionString = "Endpoint=https://jairaj007.servicebus.windows.net/;SharedSe
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);	
     try    {
     // Create message.
-	$i=60001;
-	while($i<=90000){
+	$i=40001;
+	while($i<=60000){
 		if($i%10000==0){
 			$arr["TransactionID"] = $i;
 			$arr["UserID"] = rand(1, 10);
@@ -192,8 +192,8 @@ $connectionString = "Endpoint=https://jairaj007.servicebus.windows.net/;SharedSe
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);	
     try    {
     // Create message.
-	$i=90001;
-	while($i<=120000){
+	$i=60001;
+	while($i<=80000){
 		if($i%10000==0){
 			$arr["TransactionID"] = $i;
 			$arr["UserID"] = rand(1, 10);
@@ -243,8 +243,8 @@ $connectionString = "Endpoint=https://jairaj007.servicebus.windows.net/;SharedSe
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);	
     try    {
     // Create message.
-	$i=120001;
-	while($i<=150000){
+	$i=80001;
+	while($i<=100000){
 		if($i%10000==0){
 			$arr["TransactionID"] = $i;
 			$arr["UserID"] = rand(1, 10);
@@ -296,8 +296,8 @@ $connectionString = "Endpoint=https://jairaj007.servicebus.windows.net/;SharedSe
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);	
     try    {
     // Create message.
-	$i=150001;
-	while($i<=180000){
+	$i=100001;
+	while($i<=120000){
 		if($i%10000==0){
 			$arr["TransactionID"] = $i;
 			$arr["UserID"] = rand(1, 10);
@@ -348,8 +348,8 @@ $connectionString = "Endpoint=https://jairaj007.servicebus.windows.net/;SharedSe
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);	
     try    {
     // Create message.
-	$i=180001;
-	while($i<=210000){
+	$i=120001;
+	while($i<=140000){
 		if($i%10000==0){
 			$arr["TransactionID"] = $i;
 			$arr["UserID"] = rand(1, 10);
@@ -399,8 +399,8 @@ $connectionString = "Endpoint=https://jairaj007.servicebus.windows.net/;SharedSe
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);	
     try    {
     // Create message.
-	$i=210001;
-	while($i<=240000){
+	$i=140001;
+	while($i<=160000){
 		if($i%10000==0){
 			$arr["TransactionID"] = $i;
 			$arr["UserID"] = rand(1, 10);
@@ -451,8 +451,8 @@ $connectionString = "Endpoint=https://jairaj007.servicebus.windows.net/;SharedSe
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);	
     try    {
     // Create message.
-	$i=240001;
-	while($i<=270000){
+	$i=160001;
+	while($i<=180000){
 		if($i%10000==0){
 			$arr["TransactionID"] = $i;
 			$arr["UserID"] = rand(1, 10);
@@ -504,7 +504,270 @@ $connectionString = "Endpoint=https://jairaj007.servicebus.windows.net/;SharedSe
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);	
     try    {
     // Create message.
-	$i=270001;
+	$i=180001;
+	while($i<=200000){
+		if($i%10000==0){
+			$arr["TransactionID"] = $i;
+			$arr["UserID"] = rand(1, 10);
+			$arr["SellerIDdd"] = rand(1, 10);
+			$arr["ProductName"] = $names[rand(0,3)];
+			$arr["SalePrice"] = rand(100,100000);
+			$arr["Transaction Date"] = date("m.d.y");
+			$message = new BrokeredMessage();
+		}
+		else{
+			$arr["TransactionID"] = $i;
+			$arr["UserID"] = rand(1, 10);
+			$arr["SellerID"] = rand(1, 10);
+			$arr["ProductName"] = $names[rand(0,3)];
+			$arr["SalePrice"] = rand(100,100000);
+			$arr["Transaction Date"] = date("m.d.y");
+			$message = new BrokeredMessage();
+		}
+		$message = new BrokeredMessage();
+		
+		$message->setBody(json_encode($arr,true));
+		
+		// Send message.
+		$serviceBusRestProxy->sendQueueMessage("myqueue", $message);
+		$i=$i+1;
+	}
+}
+catch(ServiceException $e){
+    // Handle exception based on error codes and messages.
+    // Error codes and messages are here: 
+    // http://msdn.microsoft.com/library/windowsazure/hh780775
+    $code = $e->getCode();
+    $error_message = $e->getMessage();
+    echo $code.": ".$error_message."<br />";
+}
+}
+
+
+// define the function to be run as a separate thread
+function send11() {
+//array with random product names
+$names[0] = "Finanical Trap";
+$names[1] = "VPN";
+$names[2] = "Auditing";
+$names[3] = "T1 Lines";	
+$connectionString="DefaultEndpointsProtocol=http;AccountName=6905assignment2;AccountKey=uO9P8uhYWle7s8dePugaMqsMjtvQhkyhDHHlfF1d7CiAgI+XriPsTb0ROSlP5/Y1OFsxWdgXQlbSknIxjTao1w==";
+// Create table REST proxy.
+$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
+$connectionString = "Endpoint=https://jairaj007.servicebus.windows.net/;SharedSecretIssuer=owner;SharedSecretValue=NT7d6BIJQdoPD7JW1ujKAAsfLk50jJyguSc7FYdn7Sc=";
+$serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);	
+    try    {
+    // Create message.
+	$i=200001;
+	while($i<=220000){
+		if($i%10000==0){
+			$arr["TransactionID"] = $i;
+			$arr["UserID"] = rand(1, 10);
+			$arr["SellerIDdd"] = rand(1, 10);
+			$arr["ProductName"] = $names[rand(0,3)];
+			$arr["SalePrice"] = rand(100,100000);
+			$arr["Transaction Date"] = date("m.d.y");
+			$message = new BrokeredMessage();
+		}
+		else{
+			$arr["TransactionID"] = $i;
+			$arr["UserID"] = rand(1, 10);
+			$arr["SellerID"] = rand(1, 10);
+			$arr["ProductName"] = $names[rand(0,3)];
+			$arr["SalePrice"] = rand(100,100000);
+			$arr["Transaction Date"] = date("m.d.y");
+			$message = new BrokeredMessage();
+		}
+		$message = new BrokeredMessage();
+		
+		$message->setBody(json_encode($arr,true));
+		
+		// Send message.
+		$serviceBusRestProxy->sendQueueMessage("myqueue", $message);
+		$i=$i+1;
+	}
+}
+catch(ServiceException $e){
+    // Handle exception based on error codes and messages.
+    // Error codes and messages are here: 
+    // http://msdn.microsoft.com/library/windowsazure/hh780775
+    $code = $e->getCode();
+    $error_message = $e->getMessage();
+    echo $code.": ".$error_message."<br />";
+}
+}
+
+// define the function to be run as a separate thread
+function send12() {
+//array with random product names
+$names[0] = "Finanical Trap";
+$names[1] = "VPN";
+$names[2] = "Auditing";
+$names[3] = "T1 Lines";	
+$connectionString="DefaultEndpointsProtocol=http;AccountName=6905assignment2;AccountKey=uO9P8uhYWle7s8dePugaMqsMjtvQhkyhDHHlfF1d7CiAgI+XriPsTb0ROSlP5/Y1OFsxWdgXQlbSknIxjTao1w==";
+// Create table REST proxy.
+$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
+$connectionString = "Endpoint=https://jairaj007.servicebus.windows.net/;SharedSecretIssuer=owner;SharedSecretValue=NT7d6BIJQdoPD7JW1ujKAAsfLk50jJyguSc7FYdn7Sc=";
+$serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);	
+    try    {
+    // Create message.
+	$i=220001;
+	while($i<=240000){
+		if($i%10000==0){
+			$arr["TransactionID"] = $i;
+			$arr["UserID"] = rand(1, 10);
+			$arr["SellerIDdd"] = rand(1, 10);
+			$arr["ProductName"] = $names[rand(0,3)];
+			$arr["SalePrice"] = rand(100,100000);
+			$arr["Transaction Date"] = date("m.d.y");
+			$message = new BrokeredMessage();
+		}
+		else{
+			$arr["TransactionID"] = $i;
+			$arr["UserID"] = rand(1, 10);
+			$arr["SellerID"] = rand(1, 10);
+			$arr["ProductName"] = $names[rand(0,3)];
+			$arr["SalePrice"] = rand(100,100000);
+			$arr["Transaction Date"] = date("m.d.y");
+			$message = new BrokeredMessage();
+		}
+		$message = new BrokeredMessage();
+		
+		$message->setBody(json_encode($arr,true));
+		
+		// Send message.
+		$serviceBusRestProxy->sendQueueMessage("myqueue", $message);
+		$i=$i+1;
+	}
+}
+catch(ServiceException $e){
+    // Handle exception based on error codes and messages.
+    // Error codes and messages are here: 
+    // http://msdn.microsoft.com/library/windowsazure/hh780775
+    $code = $e->getCode();
+    $error_message = $e->getMessage();
+    echo $code.": ".$error_message."<br />";
+}
+}
+// define the function to be run as a separate thread
+function send13() {
+//array with random product names
+$names[0] = "Finanical Trap";
+$names[1] = "VPN";
+$names[2] = "Auditing";
+$names[3] = "T1 Lines";	
+$connectionString="DefaultEndpointsProtocol=http;AccountName=6905assignment2;AccountKey=uO9P8uhYWle7s8dePugaMqsMjtvQhkyhDHHlfF1d7CiAgI+XriPsTb0ROSlP5/Y1OFsxWdgXQlbSknIxjTao1w==";
+// Create table REST proxy.
+$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
+$connectionString = "Endpoint=https://jairaj007.servicebus.windows.net/;SharedSecretIssuer=owner;SharedSecretValue=NT7d6BIJQdoPD7JW1ujKAAsfLk50jJyguSc7FYdn7Sc=";
+$serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);	
+    try    {
+    // Create message.
+	$i=240001;
+	while($i<=260000){
+		if($i%10000==0){
+			$arr["TransactionID"] = $i;
+			$arr["UserID"] = rand(1, 10);
+			$arr["SellerIDdd"] = rand(1, 10);
+			$arr["ProductName"] = $names[rand(0,3)];
+			$arr["SalePrice"] = rand(100,100000);
+			$arr["Transaction Date"] = date("m.d.y");
+			$message = new BrokeredMessage();
+		}
+		else{
+			$arr["TransactionID"] = $i;
+			$arr["UserID"] = rand(1, 10);
+			$arr["SellerID"] = rand(1, 10);
+			$arr["ProductName"] = $names[rand(0,3)];
+			$arr["SalePrice"] = rand(100,100000);
+			$arr["Transaction Date"] = date("m.d.y");
+			$message = new BrokeredMessage();
+		}
+		$message = new BrokeredMessage();
+		
+		$message->setBody(json_encode($arr,true));
+		
+		// Send message.
+		$serviceBusRestProxy->sendQueueMessage("myqueue", $message);
+		$i=$i+1;
+	}
+}
+catch(ServiceException $e){
+    // Handle exception based on error codes and messages.
+    // Error codes and messages are here: 
+    // http://msdn.microsoft.com/library/windowsazure/hh780775
+    $code = $e->getCode();
+    $error_message = $e->getMessage();
+    echo $code.": ".$error_message."<br />";
+}
+}
+// define the function to be run as a separate thread
+function send14() {
+//array with random product names
+$names[0] = "Finanical Trap";
+$names[1] = "VPN";
+$names[2] = "Auditing";
+$names[3] = "T1 Lines";	
+$connectionString="DefaultEndpointsProtocol=http;AccountName=6905assignment2;AccountKey=uO9P8uhYWle7s8dePugaMqsMjtvQhkyhDHHlfF1d7CiAgI+XriPsTb0ROSlP5/Y1OFsxWdgXQlbSknIxjTao1w==";
+// Create table REST proxy.
+$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
+$connectionString = "Endpoint=https://jairaj007.servicebus.windows.net/;SharedSecretIssuer=owner;SharedSecretValue=NT7d6BIJQdoPD7JW1ujKAAsfLk50jJyguSc7FYdn7Sc=";
+$serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);	
+    try    {
+    // Create message.
+	$i=260001;
+	while($i<=280000){
+		if($i%10000==0){
+			$arr["TransactionID"] = $i;
+			$arr["UserID"] = rand(1, 10);
+			$arr["SellerIDdd"] = rand(1, 10);
+			$arr["ProductName"] = $names[rand(0,3)];
+			$arr["SalePrice"] = rand(100,100000);
+			$arr["Transaction Date"] = date("m.d.y");
+			$message = new BrokeredMessage();
+		}
+		else{
+			$arr["TransactionID"] = $i;
+			$arr["UserID"] = rand(1, 10);
+			$arr["SellerID"] = rand(1, 10);
+			$arr["ProductName"] = $names[rand(0,3)];
+			$arr["SalePrice"] = rand(100,100000);
+			$arr["Transaction Date"] = date("m.d.y");
+			$message = new BrokeredMessage();
+		}
+		$message = new BrokeredMessage();
+		
+		$message->setBody(json_encode($arr,true));
+		
+		// Send message.
+		$serviceBusRestProxy->sendQueueMessage("myqueue", $message);
+		$i=$i+1;
+	}
+}
+catch(ServiceException $e){
+    // Handle exception based on error codes and messages.
+    // Error codes and messages are here: 
+    // http://msdn.microsoft.com/library/windowsazure/hh780775
+    $code = $e->getCode();
+    $error_message = $e->getMessage();
+    echo $code.": ".$error_message."<br />";
+}
+}
+// define the function to be run as a separate thread
+function send15() {
+//array with random product names
+$names[0] = "Finanical Trap";
+$names[1] = "VPN";
+$names[2] = "Auditing";
+$names[3] = "T1 Lines";	
+$connectionString="DefaultEndpointsProtocol=http;AccountName=6905assignment2;AccountKey=uO9P8uhYWle7s8dePugaMqsMjtvQhkyhDHHlfF1d7CiAgI+XriPsTb0ROSlP5/Y1OFsxWdgXQlbSknIxjTao1w==";
+// Create table REST proxy.
+$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
+$connectionString = "Endpoint=https://jairaj007.servicebus.windows.net/;SharedSecretIssuer=owner;SharedSecretValue=NT7d6BIJQdoPD7JW1ujKAAsfLk50jJyguSc7FYdn7Sc=";
+$serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);	
+    try    {
+    // Create message.
+	$i=280001;
 	while($i<=300000){
 		if($i%10000==0){
 			$arr["TransactionID"] = $i;
@@ -543,6 +806,7 @@ catch(ServiceException $e){
 }
 }
 
+
 $threads = array();
 $index = 0;	
 
@@ -556,6 +820,11 @@ $t7 = new Thread( 'send7' );
 $t8 = new Thread( 'send8' );
 $t9 = new Thread( 'send9' );
 $t10 = new Thread( 'send10' );
+$t11 = new Thread( 'send11' );
+$t12 = new Thread( 'send12' );
+$t13 = new Thread( 'send13' );
+$t14 = new Thread( 'send14' );
+$t15 = new Thread( 'send15' );
 
 
 
@@ -570,12 +839,18 @@ $t6->start( 10, 't6' );
 $t7->start( 10, 't7' );
 $t8->start( 10, 't8' );
 $t9->start( 10, 't9' );
-$t10->start( 10, 't10' );
+$t10>start( 10, 't10' );
+$t11->start( 10, 't11' );
+$t12->start( 10, 't12' );
+$t13->start( 10, 't13' );
+$t14->start( 10, 't14' );
+$t15->start( 10, 't15' );
+
 
 
 
 // keep the program running until the threads finish
-while($t1->isAlive() && $t2->isAlive() && $t3->isAlive()&& $t4->isAlive()&& $t5->isAlive()&& $t6->isAlive()&& $t7->isAlive()&& $t8->isAlive()&& $t9->isAlive()&& $t10->isAlive()) {
+while($t1->isAlive() && $t2->isAlive() && $t3->isAlive()&& $t4->isAlive()&& $t5->isAlive()&& $t6->isAlive()&& $t7->isAlive()&& $t8->isAlive()&& $t9->isAlive()&& $t10->isAlive()&& $t11->isAlive()&& $t12->isAlive()&& $t13->isAlive()&& $t14->isAlive()&& $t15->isAlive()) {
     sleep(1);
 }
 
