@@ -48,7 +48,7 @@ try    {
 		
 			$entity = new Entity();
 				$entity->setPartitionKey("5");
-				$entity->setRowKey("$transaction->{'TransactionID'}");
+				$entity->setRowKey($transaction->{'TransactionID'});
 				$entity->addProperty("TransactionID",EdmType::INT32, $transaction->{'TransactionID'});
 				$entity->addProperty("UserID",EdmType::INT32, $transaction->{'UserID'});
 				$entity->addProperty("SellerID",EdmType::INT32, $transaction->{'SellerID'});
@@ -114,7 +114,7 @@ $t6->start( 10, 't6' );
 $t7->start( 10, 't7' );
 $t8->start( 10, 't8' );
 $t9->start( 10, 't9' );
-$t10>start( 10, 't10' );
+$t10->start( 10, 't10' );
 $t11->start( 10, 't11' );
 $t12->start( 10, 't12' );
 $t13->start( 10, 't13' );
