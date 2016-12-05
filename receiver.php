@@ -56,8 +56,8 @@ try    {
 				$entity->addProperty("TransactionID",EdmType::INT32, $transaction->{'TransactionID'});
 				$entity->addProperty("UserID",EdmType::INT32, $transaction->{'UserID'});
 				$entity->addProperty("SellerID",EdmType::INT32, $transaction->{'SellerID'});
-				$entity->addProperty("ProductName",EdmType::STRING, $transaction->{'Product Name'});
-				$entity->addProperty("SalePrice",EdmType::INT32, $transaction->{'Sale Price'});
+				$entity->addProperty("ProductName",EdmType::STRING, $transaction->{'ProductName'});
+				$entity->addProperty("SalePrice",EdmType::INT32, $transaction->{'SalePrice'});
 				$entity->addProperty("TransactionDate",EdmType::INT32, $i);
 				try{
 					$tableRestProxy->insertEntity("suitEventStore", $entity);
