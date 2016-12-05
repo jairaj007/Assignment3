@@ -8,7 +8,7 @@ if( ! Thread::available() ) {
  
 // function to be ran on separate threads
 function paralel( $_limit, $_name ) {
-    for ( $index = 0; $index &lt; $_limit; $index++ ) {
+    for ( $index = 0; $index < $_limit; $index++ ) {
         echo 'Now running thread ' . $_name . PHP_EOL;
         sleep( 1 );
     }
