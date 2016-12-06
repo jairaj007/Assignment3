@@ -120,6 +120,14 @@ $t4 = new Thread( 'recieve' );
 $t5 = new Thread( 'recieve' );
 $t6 = new Thread( 'recieve' );
 $t7 = new Thread( 'recieve' );
+$t8 = new Thread( 'recieve' );
+$t9 = new Thread( 'recieve' );
+$t10 = new Thread( 'recieve' );
+$t11= new Thread( 'recieve' );
+$t12 = new Thread( 'recieve' );
+$t13 = new Thread( 'recieve' );
+$t14 = new Thread( 'recieve' );
+$t15 = new Thread( 'recieve' );
 
 
 
@@ -134,6 +142,14 @@ $t4->start( 10, 't4' );
 $t5->start( 10, 't5' );
 $t6->start( 10, 't6' );
 $t7->start( 10, 't7' );
+$t8->start( 10, 't8' );
+$t9->start( 10, 't9' );
+$t10->start( 10, 't10' );
+$t11->start( 10, 't11' );
+$t12->start( 10, 't12' );
+$t13->start( 10, 't13' );
+$t14->start( 10, 't14' );
+$t15->start( 10, 't15' );
 
 
 
