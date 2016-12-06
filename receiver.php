@@ -284,15 +284,11 @@ $index = 0;
 $t1 = new Thread( 'recieve' );
 $t2 = new Thread( 'recieve' );
 $t3 = new Thread( 'recieve' );
-$t4 = new Thread( 'recieve' );
-$t5 = new Thread( 'recieve1' );
+$t4 = new Thread( 'recieve2' );
+$t5 = new Thread( 'recieve2' );
 $t6 = new Thread( 'recieve1' );
 $t7 = new Thread( 'recieve1' );
-$t8 = new Thread( 'recieve2' );
-$t9 = new Thread( 'recieve2' );
-$t10 = new Thread( 'recieve2' );
-$t11 = new Thread( 'recieve2' );
-$t12 = new Thread( 'recieve1' );
+
 
 
 
