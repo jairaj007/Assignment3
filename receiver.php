@@ -18,11 +18,11 @@ if( !Thread::isAvailable() ) {
 
 
 
-
+//--------------------------------------------------------------------------------Reciever for myqueue--------------------------------------------------------------------------------//
 function recieve(){
 $connectionString = "Endpoint=https://jairaj007.servicebus.windows.net/;SharedSecretIssuer=owner;SharedSecretValue=NT7d6BIJQdoPD7JW1ujKAAsfLk50jJyguSc7FYdn7Sc=";
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
-$connectionString2="DefaultEndpointsProtocol=http;AccountName=jairaj;AccountKey=FqdFFKg7oMIv9HIQheplNRNwVrJT7ZMs3z8mWVihAPHEturXKe3g+MuWlMKo0PznLVuzgdX1uWiHkUS3osrHnQ==";
+	  $connectionString2="DefaultEndpointsProtocol=http;AccountName=jairaj;AccountKey=FqdFFKg7oMIv9HIQheplNRNwVrJT7ZMs3z8mWVihAPHEturXKe3g+MuWlMKo0PznLVuzgdX1uWiHkUS3osrHnQ==";
 
 
 // Create table REST proxy.
@@ -101,6 +101,183 @@ catch(ServiceException $e){
     echo $code.": ".$error_message."<br />";
 }
 }
+
+
+//--------------------------------------------------------------------------------Reciever for myqueue1--------------------------------------------------------------------------------//
+function recieve1(){
+$connectionString = "Endpoint=https://jairaj007.servicebus.windows.net/;SharedSecretIssuer=owner;SharedSecretValue=NT7d6BIJQdoPD7JW1ujKAAsfLk50jJyguSc7FYdn7Sc=";
+$serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
+	  $connectionString2="DefaultEndpointsProtocol=http;AccountName=jairaj;AccountKey=FqdFFKg7oMIv9HIQheplNRNwVrJT7ZMs3z8mWVihAPHEturXKe3g+MuWlMKo0PznLVuzgdX1uWiHkUS3osrHnQ==";
+
+
+// Create table REST proxy.
+$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString2);
+
+
+try    {
+    // Set the receive mode to PeekLock (default is ReceiveAndDelete).
+    $options = new ReceiveMessageOptions();
+    $options->setPeekLock();
+    // Receive message.
+	
+	$i=1;
+	$message = $serviceBusRestProxy->receiveQueueMessage("myqueue1", $options);
+	while(!$message==null){
+			$message = $serviceBusRestProxy->receiveQueueMessage("myqueue1", $options);
+			$transaction=($message->getBody());
+	
+			
+			//END
+			if(($transaction != "Garbage")){
+				$transaction = json_decode($transaction);
+				$num = $transaction->{'TransactionID'};
+				$entity = new Entity();
+					$entity->setPartitionKey("5");
+					$entity->setRowKey("$num");
+					$entity->addProperty("TransactionID",EdmType::INT32, $transaction->{'TransactionID'});
+					$entity->addProperty("UserID",EdmType::INT32, $transaction->{'UserID'});
+					$entity->addProperty("SellerID",EdmType::INT32, $transaction->{'SellerID'});
+					$entity->addProperty("ProductName",EdmType::STRING, $transaction->{'ProductName'});
+					$entity->addProperty("SalePrice",EdmType::INT32, $transaction->{'SalePrice'});
+					$entity->addProperty("TransactionDate",EdmType::INT32, $i);
+					try{
+						$tableRestProxy->insertEntity("Transactions", $entity);
+					}
+					catch(ServiceException $e){
+						// Handle exception based on error codes and messages.
+						// Error codes and messages are here:
+						// http://msdn.microsoft.com/library/azure/dd179438.aspx
+						$code = $e->getCode();
+						$error_message = $e->getMessage();
+						//echo ($error_message );
+					}
+					
+					
+				
+				$serviceBusRestProxy->deleteMessage($message);
+			}
+			else{
+								$entity = new Entity();
+					$entity->setPartitionKey("5");
+					$entity->setRowKey("$num");
+				$entity->addProperty("Transaction",EdmType::STRING, $transaction);
+						try{
+						$tableRestProxy->insertEntity("Failures", $entity);
+					}
+					catch(ServiceException $e){
+						// Handle exception based on error codes and messages.
+						// Error codes and messages are here:
+						// http://msdn.microsoft.com/library/azure/dd179438.aspx
+						$code = $e->getCode();
+						$error_message = $e->getMessage();
+						//echo ($error_message );
+					}
+					$serviceBusRestProxy->deleteMessage($message);
+			}
+			$i=$i+1;
+	}
+}
+catch(ServiceException $e){
+    // Handle exception based on error codes and messages.
+    // Error codes and messages are here:
+    // http://msdn.microsoft.com/library/windowsazure/hh780735
+    $code = $e->getCode();
+    $error_message = $e->getMessage();
+    echo $code.": ".$error_message."<br />";
+}
+}
+
+//--------------------------------------------------------------------------------Reciever for myqueue2--------------------------------------------------------------------------------//
+function recieve1(){
+$connectionString = "Endpoint=https://jairaj007.servicebus.windows.net/;SharedSecretIssuer=owner;SharedSecretValue=NT7d6BIJQdoPD7JW1ujKAAsfLk50jJyguSc7FYdn7Sc=";
+$serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
+	  $connectionString2="DefaultEndpointsProtocol=http;AccountName=jairaj;AccountKey=FqdFFKg7oMIv9HIQheplNRNwVrJT7ZMs3z8mWVihAPHEturXKe3g+MuWlMKo0PznLVuzgdX1uWiHkUS3osrHnQ==";
+
+
+// Create table REST proxy.
+$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString2);
+
+
+try    {
+    // Set the receive mode to PeekLock (default is ReceiveAndDelete).
+    $options = new ReceiveMessageOptions();
+    $options->setPeekLock();
+    // Receive message.
+	
+	$i=1;
+	$message = $serviceBusRestProxy->receiveQueueMessage("myqueue2", $options);
+	while(!$message==null){
+			$message = $serviceBusRestProxy->receiveQueueMessage("myqueue2", $options);
+			$transaction=($message->getBody());
+	
+			
+			//END
+			if(($transaction != "Garbage")){
+				$transaction = json_decode($transaction);
+				$num = $transaction->{'TransactionID'};
+				$entity = new Entity();
+					$entity->setPartitionKey("5");
+					$entity->setRowKey("$num");
+					$entity->addProperty("TransactionID",EdmType::INT32, $transaction->{'TransactionID'});
+					$entity->addProperty("UserID",EdmType::INT32, $transaction->{'UserID'});
+					$entity->addProperty("SellerID",EdmType::INT32, $transaction->{'SellerID'});
+					$entity->addProperty("ProductName",EdmType::STRING, $transaction->{'ProductName'});
+					$entity->addProperty("SalePrice",EdmType::INT32, $transaction->{'SalePrice'});
+					$entity->addProperty("TransactionDate",EdmType::INT32, $i);
+					try{
+						$tableRestProxy->insertEntity("Transactions", $entity);
+					}
+					catch(ServiceException $e){
+						// Handle exception based on error codes and messages.
+						// Error codes and messages are here:
+						// http://msdn.microsoft.com/library/azure/dd179438.aspx
+						$code = $e->getCode();
+						$error_message = $e->getMessage();
+						//echo ($error_message );
+					}
+					
+					
+				
+				$serviceBusRestProxy->deleteMessage($message);
+			}
+			else{
+								$entity = new Entity();
+					$entity->setPartitionKey("5");
+					$entity->setRowKey("$num");
+				$entity->addProperty("Transaction",EdmType::STRING, $transaction);
+						try{
+						$tableRestProxy->insertEntity("Failures", $entity);
+					}
+					catch(ServiceException $e){
+						// Handle exception based on error codes and messages.
+						// Error codes and messages are here:
+						// http://msdn.microsoft.com/library/azure/dd179438.aspx
+						$code = $e->getCode();
+						$error_message = $e->getMessage();
+						//echo ($error_message );
+					}
+					$serviceBusRestProxy->deleteMessage($message);
+			}
+			$i=$i+1;
+	}
+}
+catch(ServiceException $e){
+    // Handle exception based on error codes and messages.
+    // Error codes and messages are here:
+    // http://msdn.microsoft.com/library/windowsazure/hh780735
+    $code = $e->getCode();
+    $error_message = $e->getMessage();
+    echo $code.": ".$error_message."<br />";
+}
+}
+
+
+
+
+
+
+
+
 $threads = array();
 $index = 0;	
 
@@ -108,16 +285,15 @@ $t1 = new Thread( 'recieve' );
 $t2 = new Thread( 'recieve' );
 $t3 = new Thread( 'recieve' );
 $t4 = new Thread( 'recieve' );
-$t5 = new Thread( 'recieve' );
-$t6 = new Thread( 'recieve' );
-$t7 = new Thread( 'recieve' );
-$t8 = new Thread( 'recieve' );
-$t9 = new Thread( 'recieve' );
-$t10 = new Thread( 'recieve' );
-$t11 = new Thread( 'recieve' );
-$t12 = new Thread( 'recieve' );
-$t13 = new Thread( 'recieve' );
-$t14 = new Thread( 'recieve' );
+$t5 = new Thread( 'recieve1' );
+$t6 = new Thread( 'recieve1' );
+$t7 = new Thread( 'recieve1' );
+$t8 = new Thread( 'recieve2' );
+$t9 = new Thread( 'recieve2' );
+$t10 = new Thread( 'recieve2' );
+$t11 = new Thread( 'recieve2' );
+$t12 = new Thread( 'recieve1' );
+
 
 
 
@@ -135,15 +311,14 @@ $t9->start( 10, 't9' );
 $t10->start( 10, 't10' );
 $t11->start( 10, 't11' );
 $t12->start( 10, 't12' );
-$t13->start( 10, 't13' );
-$t14->start( 10, 't14' );
+
 
 
 
 
 
 // keep the program running until the threads finish
-while($t1->isAlive() && $t2->isAlive() && $t3->isAlive()&& $t4->isAlive()&& $t5->isAlive()&& $t6->isAlive()&& $t7->isAlive()&& $t8->isAlive()&& $t9->isAlive()&& $t10->isAlive()&& $t11->isAlive()&& $t12->isAlive()&& $t13->isAlive()&& $t14->isAlive()) {
+while($t1->isAlive() && $t2->isAlive() && $t3->isAlive()&& $t4->isAlive()&& $t5->isAlive()&& $t6->isAlive()&& $t7->isAlive()&& $t8->isAlive()&& $t9->isAlive()&& $t10->isAlive()&& $t11->isAlive()&& $t12->isAlive()) {
     sleep(1);
 }
 
