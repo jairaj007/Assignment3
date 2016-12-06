@@ -188,7 +188,7 @@ catch(ServiceException $e){
 }
 
 //--------------------------------------------------------------------------------Reciever for myqueue2--------------------------------------------------------------------------------//
-function recieve1(){
+function recieve2(){
 $connectionString = "Endpoint=https://jairaj007.servicebus.windows.net/;SharedSecretIssuer=owner;SharedSecretValue=NT7d6BIJQdoPD7JW1ujKAAsfLk50jJyguSc7FYdn7Sc=";
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 	  $connectionString2="DefaultEndpointsProtocol=http;AccountName=jairaj;AccountKey=FqdFFKg7oMIv9HIQheplNRNwVrJT7ZMs3z8mWVihAPHEturXKe3g+MuWlMKo0PznLVuzgdX1uWiHkUS3osrHnQ==";
