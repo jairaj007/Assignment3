@@ -40,16 +40,12 @@ try    {
 	while(!$message==null){
 			$message = $serviceBusRestProxy->receiveQueueMessage("myqueue", $options);
 			$transaction=($message->getBody());
-
-			$transaction = json_decode($transaction);
+	
 			
-			//Check Transactions format
-			
-			
-			$num = $transaction->{'TransactionID'};
 			//END
-			if((json_last_error() == JSON_ERROR_NONE)){
-
+			if(($transaction != "Garbage")){
+				$transaction = json_decode($transaction);
+				$num = $transaction->{'TransactionID'};
 				$entity = new Entity();
 					$entity->setPartitionKey("5");
 					$entity->setRowKey("$num");
@@ -79,7 +75,7 @@ try    {
 								$entity = new Entity();
 					$entity->setPartitionKey("5");
 					$entity->setRowKey("$num");
-				$entity->addProperty("Transaction",EdmType::INT32, $transaction);
+				$entity->addProperty("Transaction",EdmType::STRING, $transaction);
 						try{
 						$tableRestProxy->insertEntity("Failures", $entity);
 					}
@@ -118,7 +114,10 @@ $t7 = new Thread( 'recieve' );
 $t8 = new Thread( 'recieve' );
 $t9 = new Thread( 'recieve' );
 $t10 = new Thread( 'recieve' );
-
+$t11 = new Thread( 'recieve' );
+$t12 = new Thread( 'recieve' );
+$t13 = new Thread( 'recieve' );
+$t14 = new Thread( 'recieve' );
 
 
 
@@ -134,13 +133,17 @@ $t7->start( 10, 't7' );
 $t8->start( 10, 't8' );
 $t9->start( 10, 't9' );
 $t10->start( 10, 't10' );
+$t11->start( 10, 't11' );
+$t12->start( 10, 't12' );
+$t13->start( 10, 't13' );
+$t14->start( 10, 't14' );
 
 
 
 
 
 // keep the program running until the threads finish
-while($t1->isAlive() && $t2->isAlive() && $t3->isAlive()&& $t4->isAlive()&& $t5->isAlive()&& $t6->isAlive()&& $t7->isAlive()&& $t8->isAlive()&& $t9->isAlive()&& $t10->isAlive()) {
+while($t1->isAlive() && $t2->isAlive() && $t3->isAlive()&& $t4->isAlive()&& $t5->isAlive()&& $t6->isAlive()&& $t7->isAlive()&& $t8->isAlive()&& $t9->isAlive()&& $t10->isAlive()&& $t11->isAlive()&& $t12->isAlive()&& $t13->isAlive()&& $t14->isAlive()) {
     sleep(1);
 }
 
