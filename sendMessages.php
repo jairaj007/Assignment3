@@ -85,14 +85,7 @@ $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($
 	$i=20001;
 	while($i<=40000){
 		if($i%10000==0){
-			$arr["TransactionID"] = $i;
-			$arr["UserID"] = rand(1, 10);
-			$arr["SellerID"] = rand(1, 10);
-			$arr["ProductName"] = $names[rand(0,3)];
-			$arr["SalePrice"] = rand(100,100000);
-			$arr["Transaction Date"] = date("m.d.y");
-			$message = new BrokeredMessage();
-			$message->setBody($arr);
+			$message->setBody("Garbage");
 		}
 		else{
 			$arr["TransactionID"] = $i;
@@ -136,14 +129,7 @@ $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($
 	$i=40001;
 	while($i<=60000){
 		if($i%10000==0){
-			$arr["TransactionID"] = $i;
-			$arr["UserID"] = rand(1, 10);
-			$arr["SellerID"] = rand(1, 10);
-			$arr["ProductName"] = $names[rand(0,3)];
-			$arr["SalePrice"] = rand(100,100000);
-			$arr["Transaction Date"] = date("m.d.y");
-			$message = new BrokeredMessage();
-			$message->setBody($arr);
+			$message->setBody("Garbage");
 		}
 		else{
 			$arr["TransactionID"] = $i;
@@ -188,14 +174,7 @@ $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($
 	$i=60001;
 	while($i<=80000){
 		if($i%10000==0){
-			$arr["TransactionID"] = $i;
-			$arr["UserID"] = rand(1, 10);
-			$arr["SellerID"] = rand(1, 10);
-			$arr["ProductName"] = $names[rand(0,3)];
-			$arr["SalePrice"] = rand(100,100000);
-			$arr["Transaction Date"] = date("m.d.y");
-			$message = new BrokeredMessage();
-			$message->setBody($arr);
+			$message->setBody("Garbage");
 		}
 		else{
 			$arr["TransactionID"] = $i;
@@ -239,14 +218,7 @@ $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($
 	$i=80001;
 	while($i<=100000){
 		if($i%10000==0){
-			$arr["TransactionID"] = $i;
-			$arr["UserID"] = rand(1, 10);
-			$arr["SellerID"] = rand(1, 10);
-			$arr["ProductName"] = $names[rand(0,3)];
-			$arr["SalePrice"] = rand(100,100000);
-			$arr["Transaction Date"] = date("m.d.y");
-			$message = new BrokeredMessage();
-			$message->setBody($arr);
+			$message->setBody("Garbage");
 		}
 		else{
 			$arr["TransactionID"] = $i;
@@ -289,14 +261,7 @@ $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($
 	$i=100001;
 	while($i<=120000){
 		if($i%10000==0){
-			$arr["TransactionID"] = $i;
-			$arr["UserID"] = rand(1, 10);
-			$arr["SellerID"] = rand(1, 10);
-			$arr["ProductName"] = $names[rand(0,3)];
-			$arr["SalePrice"] = rand(100,100000);
-			$arr["Transaction Date"] = date("m.d.y");
-			$message = new BrokeredMessage();
-			$message->setBody($arr);
+			$message->setBody("Garbage");
 		}
 		else{
 			$arr["TransactionID"] = $i;
@@ -339,14 +304,7 @@ $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($
 	$i=120001;
 	while($i<=140000){
 		if($i%10000==0){
-			$arr["TransactionID"] = $i;
-			$arr["UserID"] = rand(1, 10);
-			$arr["SellerID"] = rand(1, 10);
-			$arr["ProductName"] = $names[rand(0,3)];
-			$arr["SalePrice"] = rand(100,100000);
-			$arr["Transaction Date"] = date("m.d.y");
-			$message = new BrokeredMessage();
-			$message->setBody($arr);
+			$message->setBody("Garbage");
 		}
 		else{
 			$arr["TransactionID"] = $i;
@@ -388,14 +346,7 @@ $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($
 	$i=140001;
 	while($i<=160000){
 		if($i%10000==0){
-			$arr["TransactionID"] = $i;
-			$arr["UserID"] = rand(1, 10);
-			$arr["SellerID"] = rand(1, 10);
-			$arr["ProductName"] = $names[rand(0,3)];
-			$arr["SalePrice"] = rand(100,100000);
-			$arr["Transaction Date"] = date("m.d.y");
-			$message = new BrokeredMessage();
-			$message->setBody($arr);
+			$message->setBody("Garbage");
 		}
 		else{
 			$arr["TransactionID"] = $i;
@@ -438,14 +389,7 @@ $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($
 	$i=160001;
 	while($i<=180000){
 		if($i%10000==0){
-			$arr["TransactionID"] = $i;
-			$arr["UserID"] = rand(1, 10);
-			$arr["SellerID"] = rand(1, 10);
-			$arr["ProductName"] = $names[rand(0,3)];
-			$arr["SalePrice"] = rand(100,100000);
-			$arr["Transaction Date"] = date("m.d.y");
-			$message = new BrokeredMessage();
-			$message->setBody($arr);
+			$message->setBody("Garbage");
 		}
 		else{
 			$arr["TransactionID"] = $i;
@@ -489,14 +433,7 @@ $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($
 	$i=180001;
 	while($i<=200000){
 		if($i%10000==0){
-			$arr["TransactionID"] = $i;
-			$arr["UserID"] = rand(1, 10);
-			$arr["SellerID"] = rand(1, 10);
-			$arr["ProductName"] = $names[rand(0,3)];
-			$arr["SalePrice"] = rand(100,100000);
-			$arr["Transaction Date"] = date("m.d.y");
-			$message = new BrokeredMessage();
-			$message->setBody($arr);
+			$message->setBody("Garbage");
 		}
 		else{
 			$arr["TransactionID"] = $i;
@@ -541,14 +478,7 @@ $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($
 	$i=200001;
 	while($i<=220000){
 		if($i%10000==0){
-			$arr["TransactionID"] = $i;
-			$arr["UserID"] = rand(1, 10);
-			$arr["SellerID"] = rand(1, 10);
-			$arr["ProductName"] = $names[rand(0,3)];
-			$arr["SalePrice"] = rand(100,100000);
-			$arr["Transaction Date"] = date("m.d.y");
-			$message = new BrokeredMessage();
-			$message->setBody($arr);
+			$message->setBody("Garbage");
 		}
 		else{
 			$arr["TransactionID"] = $i;
@@ -592,14 +522,7 @@ $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($
 	$i=220001;
 	while($i<=240000){
 		if($i%10000==0){
-			$arr["TransactionID"] = $i;
-			$arr["UserID"] = rand(1, 10);
-			$arr["SellerID"] = rand(1, 10);
-			$arr["ProductName"] = $names[rand(0,3)];
-			$arr["SalePrice"] = rand(100,100000);
-			$arr["Transaction Date"] = date("m.d.y");
-			$message = new BrokeredMessage();
-			$message->setBody($arr);
+			$message->setBody("Garbage");
 		}
 		else{
 			$arr["TransactionID"] = $i;
@@ -642,14 +565,7 @@ $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($
 	$i=240001;
 	while($i<=260000){
 		if($i%10000==0){
-			$arr["TransactionID"] = $i;
-			$arr["UserID"] = rand(1, 10);
-			$arr["SellerID"] = rand(1, 10);
-			$arr["ProductName"] = $names[rand(0,3)];
-			$arr["SalePrice"] = rand(100,100000);
-			$arr["Transaction Date"] = date("m.d.y");
-			$message = new BrokeredMessage();
-			$message->setBody($arr);
+			$message->setBody("Garbage");
 		}
 		else{
 			$arr["TransactionID"] = $i;
@@ -691,14 +607,7 @@ $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($
 	$i=260001;
 	while($i<=280000){
 		if($i%10000==0){
-			$arr["TransactionID"] = $i;
-			$arr["UserID"] = rand(1, 10);
-			$arr["SellerID"] = rand(1, 10);
-			$arr["ProductName"] = $names[rand(0,3)];
-			$arr["SalePrice"] = rand(100,100000);
-			$arr["Transaction Date"] = date("m.d.y");
-			$message = new BrokeredMessage();
-			$message->setBody($arr);
+			$message->setBody("Garbage");
 		}
 		else{
 			$arr["TransactionID"] = $i;
@@ -740,14 +649,7 @@ $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($
 	$i=280001;
 	while($i<=300000){
 		if($i%10000==0){
-			$arr["TransactionID"] = $i;
-			$arr["UserID"] = rand(1, 10);
-			$arr["SellerID"] = rand(1, 10);
-			$arr["ProductName"] = $names[rand(0,3)];
-			$arr["SalePrice"] = rand(100,100000);
-			$arr["Transaction Date"] = date("m.d.y");
-			$message = new BrokeredMessage();
-			$message->setBody($arr);
+			$message->setBody("Garbage");
 		}
 		else{
 			$arr["TransactionID"] = $i;
