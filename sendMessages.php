@@ -276,7 +276,7 @@ $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($
 
 		
 		// Send message.
-		$serviceBusRestProxy->sendQueueMessage("myqueue", $message);
+		$serviceBusRestProxy->sendQueueMessage("myqueue1", $message);
 		$i=$i+1;
 	}
 }
@@ -318,7 +318,7 @@ $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($
 		}
 
 		// Send message.
-		$serviceBusRestProxy->sendQueueMessage("myqueue", $message);
+		$serviceBusRestProxy->sendQueueMessage("myqueue1", $message);
 		$i=$i+1;
 	}
 }
@@ -361,7 +361,7 @@ $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($
 
 		
 		// Send message.
-		$serviceBusRestProxy->sendQueueMessage("myqueue", $message);
+		$serviceBusRestProxy->sendQueueMessage("myqueue1", $message);
 		$i=$i+1;
 	}
 }
@@ -404,7 +404,7 @@ $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($
 
 		
 		// Send message.
-		$serviceBusRestProxy->sendQueueMessage("myqueue", $message);
+		$serviceBusRestProxy->sendQueueMessage("myqueue1", $message);
 		$i=$i+1;
 	}
 }
@@ -448,7 +448,7 @@ $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($
 
 		
 		// Send message.
-		$serviceBusRestProxy->sendQueueMessage("myqueue", $message);
+		$serviceBusRestProxy->sendQueueMessage("myqueue1", $message);
 		$i=$i+1;
 	}
 }
@@ -493,7 +493,7 @@ $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($
 
 		
 		// Send message.
-		$serviceBusRestProxy->sendQueueMessage("myqueue", $message);
+		$serviceBusRestProxy->sendQueueMessage("myqueue2", $message);
 		$i=$i+1;
 	}
 }
@@ -537,7 +537,7 @@ $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($
 
 		
 		// Send message.
-		$serviceBusRestProxy->sendQueueMessage("myqueue", $message);
+		$serviceBusRestProxy->sendQueueMessage("myqueue2", $message);
 		$i=$i+1;
 	}
 }
@@ -579,7 +579,7 @@ $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($
 		}
 
 		// Send message.
-		$serviceBusRestProxy->sendQueueMessage("myqueue", $message);
+		$serviceBusRestProxy->sendQueueMessage("myqueue2", $message);
 		$i=$i+1;
 	}
 }
@@ -621,7 +621,7 @@ $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($
 		}
 
 		// Send message.
-		$serviceBusRestProxy->sendQueueMessage("myqueue", $message);
+		$serviceBusRestProxy->sendQueueMessage("myqueue2", $message);
 		$i=$i+1;
 	}
 }
@@ -663,7 +663,7 @@ $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($
 		}
 
 		// Send message.
-		$serviceBusRestProxy->sendQueueMessage("myqueue", $message);
+		$serviceBusRestProxy->sendQueueMessage("myqueue2", $message);
 		$i=$i+1;
 	}
 }
