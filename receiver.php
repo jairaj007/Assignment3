@@ -22,7 +22,7 @@ if( !Thread::isAvailable() ) {
 function recieve(){
 $connectionString = "Endpoint=https://jairaj007.servicebus.windows.net/;SharedSecretIssuer=owner;SharedSecretValue=NT7d6BIJQdoPD7JW1ujKAAsfLk50jJyguSc7FYdn7Sc=";
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
-	  $connectionString2="DefaultEndpointsProtocol=http;AccountName=assignment3;AccountKey=pylccY8a9IifBUoAFs4iVz3013UtR13hIWvWMRVSti3AI7CFFbtmFxnSDxsDnXkwUO12z4B3mfpi2n3SAnO2eg==";
+$connectionString2="DefaultEndpointsProtocol=http;AccountName=jairaj;AccountKey=FqdFFKg7oMIv9HIQheplNRNwVrJT7ZMs3z8mWVihAPHEturXKe3g+MuWlMKo0PznLVuzgdX1uWiHkUS3osrHnQ==";
 
 
 // Create table REST proxy.
